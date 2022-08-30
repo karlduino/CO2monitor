@@ -1,6 +1,4 @@
-/*****************
-   Get CO2 value
- *****************/
+// CO2 monitor with Senseair S8 and 16x2 LCD display
 
 #include <Arduino.h>
 #include "s8_uart.h"
@@ -8,7 +6,7 @@
 #include <LiquidCrystal_I2C.h>
 
 
-/* BEGIN CONFIGURATION */
+// Configuration
 #define DEBUG_BAUDRATE 115200
 
 #if (defined USE_SOFTWARE_SERIAL || defined ARDUINO_ARCH_RP2040)
@@ -17,7 +15,6 @@
 #else
   #define S8_UART_PORT  1     // Change UART port if it is needed
 #endif
-/* END CONFIGURATION */
 
 
 #ifdef USE_SOFTWARE_SERIAL
@@ -32,13 +29,14 @@
 #endif
 
 
+// set up special character (subscript 2)
 #if defined(ARDUINO) && ARDUINO >= 100
 #define printByte(args)  write(args);
 #else
 #define printByte(args)  print(args,BYTE);
 #endif
 
-uint8_t subscript[8] = {0x0, 0x0, 0x0, 0x1E, 0x03, 0x06, 0x0C, 0x1F };
+uint8_t subscript2[8] = {0x0, 0x0, 0x0, 0x1E, 0x03, 0x06, 0x0C, 0x1F };
 
 
 
@@ -49,11 +47,12 @@ LiquidCrystal_I2C lcd(0x27,16,2);  // set the LCD address to 0x27 for a 16 chars
 
 void setup() {
 
+  // start up the LCD display
   lcd.init();
   lcd.backlight();
   lcd.setCursor(0,0);
   lcd.print("Starting up...");
-  lcd.createChar(1, subscript);
+  lcd.createChar(1, subscript2);
 
   // Configure serial port, we need it for debug
   Serial.begin(DEBUG_BAUDRATE);
@@ -64,10 +63,6 @@ void setup() {
     delay(10);
     i++;
   }
-
-  // First message, we are alive
-  Serial.println("");
-  Serial.println("Init");
 
   // Initialize S8 sensor
   S8_serial.begin(S8_BAUDRATE);
@@ -84,8 +79,8 @@ void setup() {
       while (1) { delay(1); };
   }
 
-  delay(1000);
-  
+  delay(2000);
+
   // Show basic S8 sensor info
   lcd.setCursor(0,0);
   lcd.print("Yay! SenseAir S8");
@@ -95,28 +90,23 @@ void setup() {
   lcd.print(sensor.firm_version);
   sensor.sensor_id = sensor_S8->get_sensor_ID();
 
-  delay(1000);
+  delay(2000);
 }
-
 
 void loop() {
 
-  char buffer[17];
+  char buffer[17]; // to hold formated print
 
   // clear display
   lcd.clear();
 
-  // Get CO2 measure
+  // Get and display CO2 measure
   sensor.co2 = sensor_S8->get_co2();
   lcd.setCursor(0,0);
   sprintf(buffer, "%4d ppm CO", sensor.co2);
   lcd.print(buffer);
   lcd.setCursor(11,0);
   lcd.printByte(1);  // subscript 2
-
-  // Compare with PWM output
-  //sensor.pwm_output = sensor_S8->get_PWM_output();
-  //printf("PWM output = %0.0f ppm\n", (sensor.pwm_output / 16383.0) * 2000.0);
 
   // Wait 5 second for next measure
   delay(5000);
