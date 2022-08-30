@@ -1,11 +1,10 @@
-
 /*****************
-   Get CO2 value 
+   Get CO2 value
  *****************/
 
 #include <Arduino.h>
 #include "s8_uart.h"
-#include <Wire.h> 
+#include <Wire.h>
 #include <LiquidCrystal_I2C.h>
 
 
@@ -28,9 +27,19 @@
     REDIRECT_STDOUT_TO(Serial)    // to use printf (Serial.printf not supported)
     UART S8_serial(S8_TX_PIN, S8_RX_PIN, NC, NC);
   #else
-    HardwareSerial S8_serial(S8_UART_PORT);   
+    HardwareSerial S8_serial(S8_UART_PORT);
   #endif
 #endif
+
+
+#if defined(ARDUINO) && ARDUINO >= 100
+#define printByte(args)  write(args);
+#else
+#define printByte(args)  print(args,BYTE);
+#endif
+
+uint8_t subscript[8] = {0x0, 0x0, 0x0, 0x1E, 0x03, 0x06, 0x0C, 0x1F };
+
 
 
 S8_UART *sensor_S8;
@@ -44,6 +53,7 @@ void setup() {
   lcd.backlight();
   lcd.setCursor(0,0);
   lcd.print("Starting up...");
+  lcd.createChar(1, subscript);
 
   // Configure serial port, we need it for debug
   Serial.begin(DEBUG_BAUDRATE);
@@ -54,7 +64,7 @@ void setup() {
     delay(10);
     i++;
   }
-  
+
   // First message, we are alive
   Serial.println("");
   Serial.println("Init");
@@ -73,8 +83,9 @@ void setup() {
       lcd.print("not found!");
       while (1) { delay(1); };
   }
-  
 
+  delay(1000);
+  
   // Show basic S8 sensor info
   lcd.setCursor(0,0);
   lcd.print("Yay! SenseAir S8");
@@ -84,12 +95,11 @@ void setup() {
   lcd.print(sensor.firm_version);
   sensor.sensor_id = sensor_S8->get_sensor_ID();
 
+  delay(1000);
 }
 
 
 void loop() {
-  
-  //printf("Millis: %lu\n", millis());
 
   char buffer[17];
 
@@ -99,13 +109,15 @@ void loop() {
   // Get CO2 measure
   sensor.co2 = sensor_S8->get_co2();
   lcd.setCursor(0,0);
-  sprintf(buffer, "%4d ppm CO2", sensor.co2);
+  sprintf(buffer, "%4d ppm CO", sensor.co2);
   lcd.print(buffer);
-  
+  lcd.setCursor(11,0);
+  lcd.printByte(1);  // subscript 2
+
   // Compare with PWM output
   //sensor.pwm_output = sensor_S8->get_PWM_output();
   //printf("PWM output = %0.0f ppm\n", (sensor.pwm_output / 16383.0) * 2000.0);
 
   // Wait 5 second for next measure
-  delay(2000);
+  delay(5000);
 }
