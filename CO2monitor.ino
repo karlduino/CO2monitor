@@ -93,6 +93,8 @@ void setup() {
   delay(2000);
 }
 
+int max_co2 = 0;
+
 void loop() {
 
   char buffer[17]; // to hold formated print
@@ -107,6 +109,14 @@ void loop() {
   lcd.print(buffer);
   lcd.setCursor(11,0);
   lcd.printByte(1);  // subscript 2
+
+  if (sensor.co2 > max_co2) { max_co2 = sensor.co2; }
+  lcd.setCursor(0,1);
+  sprintf(buffer, "max CO  = %4d", max_co2);
+  lcd.print(buffer);
+  lcd.setCursor(6,1);
+  lcd.printByte(1);  // subscript 2
+
 
   // Wait 5 second for next measure
   delay(5000);
