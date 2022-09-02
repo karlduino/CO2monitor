@@ -29,10 +29,10 @@ make_layout <- function(lmargin, tmargin) {
     top <- tmargin+ 250
     bottom <- top + (31/25.4)*1000
 
-    points(c(left, right), c(top, bottom), cex=0.6)
+    points(c(left, right), c(bottom, top), cex=0.6)
 
-    text(left+150, top, '7/64" drill bit\n1/2" 4/40 screw',
-         cex=0.6, adj=c(0, 0.5))
+    text(right-150, top, '7/64" drill bit\n1/2" 4/40 screw',
+         cex=0.6, adj=c(1, 0.5))
 
 
     # screws for arduino
