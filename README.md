@@ -22,7 +22,7 @@ small screws, as well as some _very_ small screws.
 ## Libraries
 
 - [S8_UART](https://www.arduino.cc/reference/en/libraries/s8_uart/)
-- [LiquidCrystal_I2C](https://www.arduino.cc/reference/en/libraries/liquidcrystal-i2c/)
+- [LCD_I2C](https://www.arduino.cc/reference/en/libraries/lcd_i2c/)
 
 ## Connections
 

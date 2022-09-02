@@ -3,7 +3,7 @@
 #include <Arduino.h>
 #include "s8_uart.h"
 #include <Wire.h>
-#include <LiquidCrystal_I2C.h>
+#include <LCD_I2C.h>
 
 
 // Configuration
@@ -43,12 +43,12 @@ uint8_t subscript2[8] = {0x0, 0x0, 0x0, 0x1E, 0x03, 0x06, 0x0C, 0x1F };
 S8_UART *sensor_S8;
 S8_sensor sensor;
 
-LiquidCrystal_I2C lcd(0x27,16,2);  // set the LCD address to 0x27 for a 16 chars and 2 line display
+LCD_I2C lcd(0x27,16,2);  // set the LCD address to 0x27 for a 16 chars and 2 line display
 
 void setup() {
 
   // start up the LCD display
-  lcd.init();
+  lcd.begin();
   lcd.backlight();
   lcd.setCursor(0,0);
   lcd.print("Starting up...");
