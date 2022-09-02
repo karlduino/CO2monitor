@@ -3,8 +3,8 @@
 # box is 3 3/16 x 3 3/16 (inches)
 # lcd display screw holes are at 75mm x 31mm
 # arduino nano every screw holes are at 40.64mm x 15.24mm
+# micro-usb port is 0.3165" wide, centered on nano every
 # senseair s8 opening is 0.68" wide x 0.54" wide
-# ...need width and height of micro-usb port
 
 w <- (3 + 3/16)*1000
 lmargin <- 750
@@ -47,6 +47,15 @@ make_layout <- function(lmargin, tmargin) {
     text(left+150, top, '1/16" drill bit\n11/32" 0/80 screw',
          cex=0.6, adj=c(0, 0.5))
 
+    # where to cut for the usb-mini port
+    usb_height <- 316.5
+    arduino_center <- top + arduino_height/2
+    arrows(rep(lmargin+200,2), arduino_center+c(-1,1)*usb_height/2,
+           rep(lmargin,2), arduino_center+c(-1,1)*usb_height/2, len=0.05)
+    segments(lmargin+200, arduino_center-usb_height/2,
+             lmargin+200, arduino_center+usb_height/2)
+    text(lmargin+260, arduino_center+usb_height/2-60,
+         "micro-USB port cut-out", cex=0.5, adj=c(0,0.5))
 
     # opening for senseair s8
     s8_width <- 680
