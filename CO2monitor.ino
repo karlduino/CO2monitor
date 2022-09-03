@@ -8,12 +8,11 @@
 
 // Configuration
        // need to use S8_RX = 11 and S8_TX = 10 for arduino nano every
-       // for (old) arduino nano, was using S8_RX = 6 and S8_TX = 7
+       // also works for (old) arduino nano
 #define S8_RX_PIN 11 // yellow (middle pin on 5-pin header)
 #define S8_TX_PIN 10 // green  (to left of that, looking down at the label)
 
 SoftwareSerial S8_serial(S8_RX_PIN, S8_TX_PIN);
-
 
 // set up special character (subscript 2) for LCD display
 #if defined(ARDUINO) && ARDUINO >= 100
@@ -41,8 +40,7 @@ void setup() {
   // Initialize S8 sensor
   S8_serial.begin(S8_BAUDRATE);
   sensor_S8 = new S8_UART(S8_serial);
-  delay(4000);
-
+  
   // Check if S8 is available
   sensor_S8->get_firmware_version(sensor.firm_version);
   int len = strlen(sensor.firm_version);
@@ -66,8 +64,7 @@ void setup() {
 
   if(2000 > n_tries * 250) delay(2000 - n_tries*250);
 
-
-  // Show basic S8 sensor info
+  // wait a bit to try to avoid first reading of 0 ppm
   lcd.setCursor(0,0);
   lcd.print("Warming up...   ");
   lcd.setCursor(0,1);
