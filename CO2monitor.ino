@@ -3,33 +3,18 @@
 #include <Arduino.h>
 #include "s8_uart.h"
 #include <Wire.h>
-#include <LiquidCrystal_I2C.h>
-
+#include <LCD_I2C.h>
 
 // Configuration
 #define DEBUG_BAUDRATE 115200
 
-#if (defined USE_SOFTWARE_SERIAL || defined ARDUINO_ARCH_RP2040)
-  #define S8_RX_PIN 6         // Rx pin which the S8 Tx pin is attached to (change if it is needed)
-  #define S8_TX_PIN 7         // Tx pin which the S8 Rx pin is attached to (change if it is needed)
-#else
-  #define S8_UART_PORT  1     // Change UART port if it is needed
-#endif
+#define S8_RX_PIN 6
+#define S8_TX_PIN 7
+
+SoftwareSerial S8_serial(S8_RX_PIN, S8_TX_PIN);
 
 
-#ifdef USE_SOFTWARE_SERIAL
-  SoftwareSerial S8_serial(S8_RX_PIN, S8_TX_PIN);
-#else
-  #if defined(ARDUINO_ARCH_RP2040)
-    REDIRECT_STDOUT_TO(Serial)    // to use printf (Serial.printf not supported)
-    UART S8_serial(S8_TX_PIN, S8_RX_PIN, NC, NC);
-  #else
-    HardwareSerial S8_serial(S8_UART_PORT);
-  #endif
-#endif
-
-
-// set up special character (subscript 2)
+// set up special character (subscript 2) for LCD display
 #if defined(ARDUINO) && ARDUINO >= 100
 #define printByte(args)  write(args);
 #else
@@ -43,12 +28,12 @@ uint8_t subscript2[8] = {0x0, 0x0, 0x0, 0x1E, 0x03, 0x06, 0x0C, 0x1F };
 S8_UART *sensor_S8;
 S8_sensor sensor;
 
-LiquidCrystal_I2C lcd(0x27,16,2);  // set the LCD address to 0x27 for a 16 chars and 2 line display
+LCD_I2C lcd(0x27,16,2);  // set the LCD address to 0x27 for a 16 chars and 2 line display
 
 void setup() {
 
   // start up the LCD display
-  lcd.init();
+  lcd.begin();
   lcd.backlight();
   lcd.setCursor(0,0);
   lcd.print("Starting up...");
@@ -79,8 +64,6 @@ void setup() {
       while (1) { delay(1); };
   }
 
-  delay(2000);
-
   // Show basic S8 sensor info
   lcd.setCursor(0,0);
   lcd.print("Yay! SenseAir S8");
@@ -91,6 +74,16 @@ void setup() {
   sensor.sensor_id = sensor_S8->get_sensor_ID();
 
   delay(2000);
+
+
+  // Show basic S8 sensor info
+  lcd.setCursor(0,0);
+  lcd.print("Warming up...   ");
+  lcd.setCursor(0,1);
+  lcd.print("                ");
+
+  delay(4000);
+
 }
 
 int max_co2 = 0;
