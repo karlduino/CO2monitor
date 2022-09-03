@@ -86,3 +86,16 @@ make_layout(lmargin*4/3+w, tmargin*4/3+w)
 
 
 dev.off()
+
+
+# create PNG for the README
+
+png("co2_monitor_layout.png", height=(4250-750/2)/4, width=(4250-750/2)/4)
+par(bty="n", mar=rep(0,4), oma=rep(0,4), cex=2)
+
+plot(0,0,xlim=c(0,4250-750/2), ylim=c(4250-750/2,0), xaxs="i", yaxs="i",
+     xaxt="n", yaxt="n", xlab="", ylab="", type="n")
+
+make_layout(lmargin/2, tmargin/2)
+
+dev.off()
