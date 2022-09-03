@@ -24,7 +24,7 @@ female-to-female jumper cables.
 ### Prepare the box
 
 There's a [drill
-template](../DrillTemplate/co2_monitor_drill_template.pdf) document
+template](DrillTemplate/co2_monitor_drill_template.pdf) document
 that you should print out, to guide the positioning of the drill holes
 and cut-outs.
 
