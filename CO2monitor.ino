@@ -6,8 +6,6 @@
 #include <LCD_I2C.h>
 
 // Configuration
-#define DEBUG_BAUDRATE 115200
-
 #define S8_RX_PIN 6 
 #define S8_TX_PIN 7 
 
@@ -23,8 +21,6 @@ SoftwareSerial S8_serial(S8_RX_PIN, S8_TX_PIN);
 
 uint8_t subscript2[8] = {0x0, 0x0, 0x0, 0x1E, 0x03, 0x06, 0x0C, 0x1F };
 
-
-
 S8_UART *sensor_S8;
 S8_sensor sensor;
 
@@ -38,22 +34,6 @@ void setup() {
   lcd.setCursor(0,0);
   lcd.print("Starting up...");
   lcd.createChar(1, subscript2);
-
-#if (defined USE_SOFTWARE_SERIAL)
-lcd.setCursor(0,0);
-lcd.print("USE_SOFTWARE_SERIAL is defined");
-delay(5000);
-#endif
-   
-  // Configure serial port, we need it for debug
-  Serial.begin(DEBUG_BAUDRATE);
-
-  // Wait port is open or timeout
-  int i = 0;
-  while (!Serial && i < 50) {
-    delay(10);
-    i++;
-  }
 
   // Initialize S8 sensor
   S8_serial.begin(S8_BAUDRATE);
