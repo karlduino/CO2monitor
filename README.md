@@ -38,7 +38,9 @@ not compatible with the Arduino Nano Every).
 ## Libraries
 
 - [S8_UART](https://www.arduino.cc/reference/en/libraries/s8_uart/)
+  ([github)(https://github.com/jcomas/S8_UART))
 - [LCD_I2C](https://www.arduino.cc/reference/en/libraries/lcd_i2c/)
+  ([github)(https://github.com/blackhack/LCD_I2C))
 
 ## Connections
 
