@@ -46,17 +46,17 @@ not compatible with the Arduino Nano Every).
 
 - The 16x2 LCD with I2C has a 4-pin connector:
 
-  - 16x2 GND -> Arduino Nano GND (black)
-  - 16x2 VCC -> Arduino Nano VIN (red)
-  - 16x2 SDA -> Arduino Nano A4 (green)
-  - 16x2 SCL -> Arduino Nano A5 (yellow)
+  - 16x2 GND -> Arduino GND (black)
+  - 16x2 VCC -> Arduino VIN (red)
+  - 16x2 SDA -> Arduino A4 (green)
+  - 16x2 SCL -> Arduino A5 (yellow)
 
-- The SenseAir S8 needs soldering (needs confirmation)
+- The SenseAir S8 needs soldering; could use two pairs of header pins
 
-  - 4-pin side, pin 1 (G+) -> Arduino Nano 5V (red)
-  - 4-pin side, pin 2 (G0) -> Arduino Nano GND (black)
-  - 5-pin side, pin 2 -> Arduino Nano D7 (green)
-  - 5-pin side, pin 3 -> Arduino Nano D6 (yellow)
+  - 4-pin side, pin 1 (G+) -> Arduino 5V (red)
+  - 4-pin side, pin 2 (G0) -> Arduino GND (black)
+  - 5-pin side, pin 2 -> Arduino D10 (green)
+  - 5-pin side, pin 3 -> Arduino D11 (yellow)
 
 ## License
 
