@@ -1,2 +1,2 @@
-co2_monitor_layout.pdf: co2_monitor_layout.R
+co2_monitor_drill_template.pdf: co2_monitor_drill_template.R
 	R -e "source('$^')"

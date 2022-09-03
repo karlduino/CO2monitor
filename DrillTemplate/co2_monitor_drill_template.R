@@ -10,14 +10,14 @@ w <- (3 + 3/16)*1000
 lmargin <- 750
 tmargin <- 750
 
-pdf("co2_monitor_layout.pdf", height=11, width=8.5)
+pdf("co2_monitor_drill_template.pdf", height=11, width=8.5)
 par(bty="n", mar=rep(0,4), oma=rep(0,4))
 
 plot(0,0,xlim=c(0,8500), ylim=c(11000,0), xaxs="i", yaxs="i",
      xaxt="n", yaxt="n", xlab="", ylab="", type="n")
 
 
-make_layout <- function(lmargin, tmargin) {
+make_drill_template <- function(lmargin, tmargin) {
 
     # box
     rect(lmargin, tmargin, w+lmargin, w+tmargin, col=NA, border="black")
@@ -75,13 +75,13 @@ make_layout <- function(lmargin, tmargin) {
 
 }
 
-make_layout(lmargin, tmargin)
+make_drill_template(lmargin, tmargin)
 
-make_layout(lmargin, tmargin*4/3+w)
+make_drill_template(lmargin, tmargin*4/3+w)
 
-make_layout(lmargin*4/3+w, tmargin)
+make_drill_template(lmargin*4/3+w, tmargin)
 
-make_layout(lmargin*4/3+w, tmargin*4/3+w)
+make_drill_template(lmargin*4/3+w, tmargin*4/3+w)
 
 
 
@@ -90,12 +90,12 @@ dev.off()
 
 # create PNG for the README
 
-png("co2_monitor_layout.png", height=(4250-750/2)/4, width=(4250-750/2)/4)
+png("co2_monitor_drill_template.png", height=(4250-750/2)/4, width=(4250-750/2)/4)
 par(bty="n", mar=rep(0,4), oma=rep(0,4), cex=2)
 
 plot(0,0,xlim=c(0,4250-750/2), ylim=c(4250-750/2,0), xaxs="i", yaxs="i",
      xaxt="n", yaxt="n", xlab="", ylab="", type="n")
 
-make_layout(lmargin/2, tmargin/2)
+make_drill_template(lmargin/2, tmargin/2)
 
 dev.off()
