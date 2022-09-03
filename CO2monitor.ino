@@ -5,31 +5,16 @@
 #include <Wire.h>
 #include <LCD_I2C.h>
 
-
 // Configuration
 #define DEBUG_BAUDRATE 115200
 
-#if (defined USE_SOFTWARE_SERIAL || defined ARDUINO_ARCH_RP2040)
-  #define S8_RX_PIN 6         // Rx pin which the S8 Tx pin is attached to (change if it is needed)
-  #define S8_TX_PIN 7         // Tx pin which the S8 Rx pin is attached to (change if it is needed)
-#else
-  #define S8_UART_PORT  1     // Change UART port if it is needed
-#endif
+#define S8_RX_PIN 6 
+#define S8_TX_PIN 7 
+
+SoftwareSerial S8_serial(S8_RX_PIN, S8_TX_PIN);
 
 
-#ifdef USE_SOFTWARE_SERIAL
-  SoftwareSerial S8_serial(S8_RX_PIN, S8_TX_PIN);
-#else
-  #if defined(ARDUINO_ARCH_RP2040)
-    REDIRECT_STDOUT_TO(Serial)    // to use printf (Serial.printf not supported)
-    UART S8_serial(S8_TX_PIN, S8_RX_PIN, NC, NC);
-  #else
-    HardwareSerial S8_serial(S8_UART_PORT);
-  #endif
-#endif
-
-
-// set up special character (subscript 2)
+// set up special character (subscript 2) for LCD display
 #if defined(ARDUINO) && ARDUINO >= 100
 #define printByte(args)  write(args);
 #else
@@ -54,6 +39,12 @@ void setup() {
   lcd.print("Starting up...");
   lcd.createChar(1, subscript2);
 
+#if (defined USE_SOFTWARE_SERIAL)
+lcd.setCursor(0,0);
+lcd.print("USE_SOFTWARE_SERIAL is defined");
+delay(5000);
+#endif
+   
   // Configure serial port, we need it for debug
   Serial.begin(DEBUG_BAUDRATE);
 
@@ -79,8 +70,6 @@ void setup() {
       while (1) { delay(1); };
   }
 
-  delay(2000);
-
   // Show basic S8 sensor info
   lcd.setCursor(0,0);
   lcd.print("Yay! SenseAir S8");
@@ -91,6 +80,16 @@ void setup() {
   sensor.sensor_id = sensor_S8->get_sensor_ID();
 
   delay(2000);
+
+
+  // Show basic S8 sensor info
+  lcd.setCursor(0,0);
+  lcd.print("Warming up...   ");
+  lcd.setCursor(0,1);
+  lcd.print("                ");
+
+  delay(4000);
+
 }
 
 int max_co2 = 0;
