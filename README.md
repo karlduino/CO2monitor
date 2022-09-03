@@ -20,9 +20,20 @@ Also some wires, include female-female jumpers, and solder and a
 soldering iron (just to get wires onto the SenseAir S8), and some
 small screws, as well as some _very_ small screws.
 
-In the Arduino IDE, you need to first use the Board Manager to install
-the drivers for the megaAVR boards, and then when you select Nano
-Every, use `Registers emulation: None (ATMEGA4809)`.
+If you're using an Arduino Nano Every, I found that, in the Arduino
+IDE, you need to first use the Board Manager to install the drivers
+for the megaAVR boards, and then when you select Nano Every, use
+`Registers emulation: None (ATMEGA4809)`.
+
+My code for interacting with the SenseAir S8 sensor is based on the
+example code in the [S8_UART
+library](https://github.com/jcomas/S8_UART).
+
+My code for writing on the LCD (including making the custom character
+for the subscript 2) was based on the example code with the
+older [LiquidCrystal_I2C
+library](https://github.com/johnrickman/LiquidCrystal_I2C) (which is
+not compatible with the Arduino Nano Every).
 
 ## Libraries
 
