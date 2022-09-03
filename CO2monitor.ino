@@ -7,8 +7,8 @@
 
 
 // Configuration
-#define S8_RX_PIN 11
-#define S8_TX_PIN 10
+#define S8_RX_PIN 10
+#define S8_TX_PIN 11
 
 SoftwareSerial S8_serial(S8_RX_PIN, S8_TX_PIN);
 
@@ -27,7 +27,16 @@ S8_sensor sensor;
 
 LCD_I2C lcd(0x27,16,2);  // set the LCD address to 0x27 for a 16 chars and 2 line display
 
+#undef CORE_DEBUG_LEVEL
+#define CORE_DEBUG_LEVEL 5
+
 void setup() {
+
+  Serial.begin(9600);
+  for(int i=0; !Serial && i < 50; i++) {
+    delay(10);
+  }
+  Serial.print("hello\n");
 
   // start up the LCD display
   lcd.begin();
