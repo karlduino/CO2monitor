@@ -11,7 +11,8 @@ Here are the parts I used:
 
 - [SenseAir S8](https://senseair.com/products/size-counts/s8-lp/) from
   [Amazon](https://amzn.to/3AyzQMa)
-- [Arduino Nano](https://store.arduino.cc/products/arduino-nano)
+- [Arduino Nano Every](https://store.arduino.cc/products/arduino-nano-every)
+  or [Arduino Nano](https://store.arduino.cc/products/arduino-nano)
 - 16x2 display with I2C chip from [Amazon](https://amzn.to/3AwG3Z7)
 - plastic box from [Amazon](https://amzn.to/3R24kxb)
 
@@ -19,10 +20,14 @@ Also some wires, include female-female jumpers, and solder and a
 soldering iron (just to get wires onto the SenseAir S8), and some
 small screws, as well as some _very_ small screws.
 
+In the Arduino IDE, you need to first use the Board Manager to install
+the drivers for the megaAVR boards, and then when you select Nano
+Every, use `Registers emulation: None (ATMEGA4809)`.
+
 ## Libraries
 
 - [S8_UART](https://www.arduino.cc/reference/en/libraries/s8_uart/)
-- [LiquidCrystal_I2C](https://www.arduino.cc/reference/en/libraries/liquidcrystal-i2c/)
+- [LCD_I2C](https://www.arduino.cc/reference/en/libraries/lcd_i2c/)
 
 ## Connections
 

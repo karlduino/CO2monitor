@@ -5,9 +5,12 @@
 #include <Wire.h>
 #include <LCD_I2C.h>
 
+
 // Configuration
-#define S8_RX_PIN 6
-#define S8_TX_PIN 7
+       // need to use S8_RX = 11 and S8_TX = 10 for arduino nano every
+       // for (old) arduino nano, was using S8_RX = 6 and S8_TX = 7
+#define S8_RX_PIN 11 // yellow (middle pin on 5-pin header)
+#define S8_TX_PIN 10 // green  (to left of that, looking down at the label)
 
 SoftwareSerial S8_serial(S8_RX_PIN, S8_TX_PIN);
 
@@ -20,8 +23,6 @@ SoftwareSerial S8_serial(S8_RX_PIN, S8_TX_PIN);
 #endif
 
 uint8_t subscript2[8] = {0x0, 0x0, 0x0, 0x1E, 0x03, 0x06, 0x0C, 0x1F };
-
-
 
 S8_UART *sensor_S8;
 S8_sensor sensor;
@@ -40,16 +41,17 @@ void setup() {
   // Initialize S8 sensor
   S8_serial.begin(S8_BAUDRATE);
   sensor_S8 = new S8_UART(S8_serial);
+  delay(4000);
 
   // Check if S8 is available
   sensor_S8->get_firmware_version(sensor.firm_version);
   int len = strlen(sensor.firm_version);
-  if (len == 0) {
-      lcd.setCursor(0,0);
-      lcd.print("SenseAir S8 CO2");
-      lcd.setCursor(0,1);
-      lcd.print("not found!");
-      while (1) { delay(1); };
+  int n_tries = 1;
+  while (len == 0 && n_tries < 120) {
+      delay(250);
+      sensor_S8->get_firmware_version(sensor.firm_version);
+      len = strlen(sensor.firm_version);
+      n_tries++; // give up after 120 tries
   }
 
   // Show basic S8 sensor info
@@ -58,10 +60,11 @@ void setup() {
   lcd.setCursor(0,1);
   lcd.print("Firmware:");
   lcd.setCursor(9,1);
-  lcd.print(sensor.firm_version);
+  if (len == 0) lcd.print("not found");
+  else lcd.print(sensor.firm_version);
   sensor.sensor_id = sensor_S8->get_sensor_ID();
 
-  delay(2000);
+  if(2000 > n_tries * 250) delay(2000 - n_tries*250);
 
 
   // Show basic S8 sensor info
