@@ -7,8 +7,8 @@
 
 
 // Configuration
-#define S8_RX_PIN 10
-#define S8_TX_PIN 11
+#define S8_RX_PIN 11 // yellow
+#define S8_TX_PIN 10 // green
 
 SoftwareSerial S8_serial(S8_RX_PIN, S8_TX_PIN);
 
@@ -27,16 +27,7 @@ S8_sensor sensor;
 
 LCD_I2C lcd(0x27,16,2);  // set the LCD address to 0x27 for a 16 chars and 2 line display
 
-#undef CORE_DEBUG_LEVEL
-#define CORE_DEBUG_LEVEL 5
-
 void setup() {
-
-  Serial.begin(9600);
-  for(int i=0; !Serial && i < 50; i++) {
-    delay(10);
-  }
-  Serial.print("hello\n");
 
   // start up the LCD display
   lcd.begin();
@@ -53,12 +44,12 @@ void setup() {
   // Check if S8 is available
   sensor_S8->get_firmware_version(sensor.firm_version);
   int len = strlen(sensor.firm_version);
-  if (len == 0) {
-      lcd.setCursor(0,0);
-      lcd.print("SenseAir S8 CO2");
-      lcd.setCursor(0,1);
-      lcd.print("not found!");
-      while (1) { delay(1); };
+  int n_tries = 1;
+  while (len == 0 && n_tries < 120) {
+      delay(250);
+      sensor_S8->get_firmware_version(sensor.firm_version);
+      len = strlen(sensor.firm_version);
+      n_tries++; // give up after 120 tries
   }
 
   // Show basic S8 sensor info
@@ -67,10 +58,11 @@ void setup() {
   lcd.setCursor(0,1);
   lcd.print("Firmware:");
   lcd.setCursor(9,1);
-  lcd.print(sensor.firm_version);
+  if (len == 0) lcd.print("not found");
+  else lcd.print(sensor.firm_version);
   sensor.sensor_id = sensor_S8->get_sensor_ID();
 
-  delay(2000);
+  if(2000 > n_tries * 250) delay(2000 - n_tries*250);
 
 
   // Show basic S8 sensor info
