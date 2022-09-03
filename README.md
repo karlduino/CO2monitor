@@ -44,3 +44,7 @@ Every, use `Registers emulation: None (ATMEGA4809)`.
   - 4-pin side, pin 2 (G0) -> Arduino Nano GND (black)
   - 5-pin side, pin 2 -> Arduino Nano D7 (green)
   - 5-pin side, pin 3 -> Arduino Nano D6 (yellow)
+
+## License
+
+This work released under the [MIT License](LICENSE.md).
