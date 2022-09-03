@@ -6,8 +6,8 @@
 #include <LCD_I2C.h>
 
 // Configuration
-#define S8_RX_PIN 6 
-#define S8_TX_PIN 7 
+#define S8_RX_PIN 6
+#define S8_TX_PIN 7
 
 SoftwareSerial S8_serial(S8_RX_PIN, S8_TX_PIN);
 
