@@ -38,6 +38,7 @@ void setup() {
   // Initialize S8 sensor
   S8_serial.begin(S8_BAUDRATE);
   sensor_S8 = new S8_UART(S8_serial);
+  delay(2000);
 
   // Check if S8 is available
   sensor_S8->get_firmware_version(sensor.firm_version);
