@@ -7,8 +7,10 @@
 
 
 // Configuration
-#define S8_RX_PIN 11 // yellow
-#define S8_TX_PIN 10 // green
+       // need to use S8_RX = 11 and S8_TX = 10 for arduino nano every
+       // for (old) arduino nano, was using S8_RX = 6 and S8_TX = 7
+#define S8_RX_PIN 11 // yellow (middle pin on 5-pin header)
+#define S8_TX_PIN 10 // green  (to left of that, looking down at the label)
 
 SoftwareSerial S8_serial(S8_RX_PIN, S8_TX_PIN);
 
