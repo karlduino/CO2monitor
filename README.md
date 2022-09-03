@@ -29,13 +29,13 @@ small screws, as well as some _very_ small screws.
 - The 16x2 LCD with I2C has a 4-pin connector:
 
   - 16x2 GND -> Arduino Nano GND (black)
-  - 16x2 VCC -> Arduino Nano 3.3V (red)
-  - 16x2 SCL -> Arduino Nano A4 (green)
-  - 16x2 SDA -> Arduino Nano A5 (yellow)
+  - 16x2 VCC -> Arduino Nano VIN (red)
+  - 16x2 SDA -> Arduino Nano A4 (green)
+  - 16x2 SCL -> Arduino Nano A5 (yellow)
 
 - The SenseAir S8 needs soldering (needs confirmation)
 
   - 4-pin side, pin 1 (G+) -> Arduino Nano 5V (red)
   - 4-pin side, pin 2 (G0) -> Arduino Nano GND (black)
-  - 5-pin side, pin 2 -> Arduino Nano D6 (green)
-  - 5-pin side, pin 3 -> Arduino Nano D7 (yellow)
+  - 5-pin side, pin 2 -> Arduino Nano D7 (green)
+  - 5-pin side, pin 3 -> Arduino Nano D6 (yellow)
