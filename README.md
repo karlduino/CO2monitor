@@ -12,9 +12,9 @@ understanding was
 [LibreCO2](https://github.com/danielbernalb/LibreCO2).
 I did a limited comparison between two of the SenseAir S8 monitors and
 the more expensive [Aranet4](https://aranet.com/products/aranet4/);
-[see the results](https://karlduino.github.io/CO2monitor/docs/Comparison/comparison.html).
+[see the results](https://karlduino.org/CO2monitor/docs/Comparison/comparison.html).
 
-[![CO2 monitor tied to a wooden post with a pink cord](https://karlduino.github.io/CO2monitor/docs/pics/co2monitor_sm.jpg)](https://karlduino.github.io/CO2monitor/docs/pics/co2monitor.jpg)
+[![CO2 monitor tied to a wooden post with a pink cord](https://karlduino.org/CO2monitor/docs/pics/co2monitor_sm.jpg)](https://karlduino.org/CO2monitor/docs/pics/co2monitor.jpg)
 
 ### Parts
 
@@ -72,7 +72,7 @@ not compatible with the Arduino Nano Every).
 ### Assembly instructions
 
 See the
-[instructions document](https://karlduino.github.io/CO2monitor/docs/instructions.html),
+[instructions document](https://karlduino.org/CO2monitor/docs/instructions.html),
 which attempts to explain the full process:
 
 - prepare the box (drilling holes to mount components and cutting

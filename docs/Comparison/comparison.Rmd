@@ -115,4 +115,4 @@ The source for this document, including the data, is at
 <https://github.com/karlduino/CO2monitor/tree/main/docs/Comparison>
 
 Details on the design and assembly of the Arduino-based CO~2~ monitor are at
-<https://karlduino.github.io/CO2monitor>.
+<https://karlduino.org/CO2monitor>.
