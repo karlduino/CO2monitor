@@ -14,6 +14,8 @@ I did a limited comparison between two of the SenseAir S8 monitors and
 the more expensive [Aranet4](https://aranet.com/products/aranet4/);
 [see the results](https://karlduino.github.io/docs/Comparison/comparison.html).
 
+[![CO2 monitor tied to a wooden post with a pink cord](https://karlduino.github.io/docs/pics/co2monitor_sm.jpg)](https://karlduino.github.io/docs/pics/co2monitor.jpg)
+
 ### Parts
 
 The cost of the main components is about US$ 60.
