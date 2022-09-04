@@ -25,7 +25,6 @@ which is about US$ 40).
   [![shopping cart icon](docs/pics/shopping-cart.png)](https://amzn.to/3AyzQMa)
 
 - [Arduino Nano Every](https://store.arduino.cc/products/arduino-nano-every)
-  or [Arduino Nano](https://store.arduino.cc/products/arduino-nano)
 
 - 16x2 display with I2C chip
   [![shopping cart icon](docs/pics/shopping-cart.png)](https://amzn.to/3AwG3Z7)
@@ -47,18 +46,17 @@ some _very_ small screws (I used 11/32" 0/80 screws for the Arduino).
 
 You'll find the code on [Github](https://github.com/karlduino/CO2monitor).
 
-If you're using an Arduino Nano Every, I found that, in the Arduino
-IDE, you need to first use the Board Manager to install the drivers
-for the megaAVR boards, and then when you select Nano Every, use
-`Registers emulation: None (ATMEGA4809)`.
+The first time using the Arduino Nano Every with the Arduino
+IDE, you may need to use the Board Manager to install the drivers
+for the megaAVR boards. Then when you select the Nano Every as your
+board, select `Registers emulation: None (ATMEGA4809)`.
 
 My code for interacting with the SenseAir S8 sensor is based on the
 example code in the [S8_UART
 library](https://github.com/jcomas/S8_UART).
 
-My code for writing on the LCD (including making the custom character
-for the subscript 2) was based on the example code with the
-older [LiquidCrystal_I2C
+My code for writing on the LCD (including making custom characters)
+was based on the example code with the older [LiquidCrystal_I2C
 library](https://github.com/johnrickman/LiquidCrystal_I2C) (which is
 not compatible with the Arduino Nano Every).
 
@@ -78,7 +76,7 @@ See the
 which attempts to explain the full process:
 
 - prepare the box (drilling holes to mount components and cutting
-  holes for the sensor and the USB cable)
+  holes for the sensor and the micro-USB cable)
 
 - Solder headers onto the main components
 
@@ -86,6 +84,7 @@ which attempts to explain the full process:
 
 - Make connections (see below)
 
+- Load the software
 
 
 ### Connections
