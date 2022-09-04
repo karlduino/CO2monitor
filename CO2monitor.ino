@@ -84,9 +84,9 @@ void setup() {
 
   // Show basic S8 sensor info
   lcd.setCursor(0,0);
-  lcd.print("SenseAir S8");
+  lcd.print("SenseAir S8      ");
   lcd.setCursor(0,1);
-  lcd.print("Firmware:");
+  lcd.print("Firmware:        ");
   lcd.setCursor(10,1);
   if (len == 0) lcd.print("N/A");
   else lcd.print(sensor.firm_version);
