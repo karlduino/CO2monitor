@@ -1,16 +1,20 @@
-## CO2 monitor
+## CO2 monitor based on an Arduino and a SenseAir S8 sensor
 
-This is a DIY CO2 monitor based on the [SenseAir
+This is a low-cost do-it-yourself CO2 monitor based on the [SenseAir
 S8](https://senseair.com/products/size-counts/s8-lp/) sensor, an
-arduino, and a 16x2 LCD display.
+[Arduino Nano
+Every](https://store.arduino.cc/products/arduino-nano-every), and a
+16x2 LCD display.
 
-The goal is assess air quality, particularly in classrooms and with
-concern about COVID-19. The main source of my understanding was [LibreCO2](https://github.com/danielbernalb/LibreCO2).
+The goal is assess air quality, particularly in classrooms and meeting
+rooms and with concern about COVID-19. The main source of my
+understanding was
+[LibreCO2](https://github.com/danielbernalb/LibreCO2).
 
 Here are the parts I used:
 
-- [SenseAir S8](https://senseair.com/products/size-counts/s8-lp/) from
-  [Amazon](https://amzn.to/3AyzQMa)
+- [SenseAir S8](https://senseair.com/products/size-counts/s8-lp/)
+  [[![shopping cart icon](docs/pics/shopping-cart-icon.svg | height=20)](https://amzn.to/3AyzQMa)
 - [Arduino Nano Every](https://store.arduino.cc/products/arduino-nano-every)
   or [Arduino Nano](https://store.arduino.cc/products/arduino-nano)
 - 16x2 display with I2C chip from [Amazon](https://amzn.to/3AwG3Z7)
