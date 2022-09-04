@@ -1,12 +1,15 @@
-## Comparison between Aranet4 and SenseAir S8 CO2 sensors
+## Comparison between Aranet4 and SenseAir S8 CO~2~ sensors
 
-We gathered data over the course of a single day to compare the CO2
+We gathered data over the course of a single day to compare the CO~2~
 measurements from an [Aranet4](https://aranet.com/products/aranet4/)
 and two different [SenseAir S8
-LP](https://senseair.com/products/size-counts/s8-lp/) CO2 sensors. The
-monitors were in a common area, sitting all together. We had closed
-all doors and windows mid-morning, and then opening them again late
-afternoon.
+LP](https://senseair.com/products/size-counts/s8-lp/) CO~2~ sensors,
+one controlled by an Arduino Nano and the other controlled by an
+Arduino Nano Every.
+
+The monitors were in a common area, sitting all together. We had
+closed all doors and windows in the morning, and then opening them again
+late afternoon.
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, dev="svg",
@@ -21,13 +24,10 @@ library(broman)  # for graphs
 x <- read.csv("data.csv", comment.char="#")
 
 x$time <- chron(times=paste0(x$time, ":00"))
-
-# calibrate the S8s vs the Aranet4 by subtracting their averages
-x[,5:6] <- t(t(x[,3:4])-colMeans(x[,3:4])+mean(x[,2]))
 ```
 
 Here's a plot of the three sensors' values over time. The Aranet4 is
-in black; the two Sensair S8s are in blue and pink.
+in black; the two SenseAir S8s are in blue and pink.
 
 ```{r plot_data}
 par(mar=c(3.1,4.1,0.6,0.6))
@@ -50,3 +50,61 @@ lines(x[,1], x[,4], col=blue, lwd=2)
 legend("topright", lwd=2, col=c("black", blue, pink),
        devices, bg="gray90")
 ```
+
+It had started raining, so we closed up the house at 8:30am or so, and
+the CO~2~ gradually increased, reaching a peak of about 1200 ppm at
+about 5pm. At that point, we opened windows and doors again, and the
+CO~2~ quickly plunged back to an acceptable level (in less than an hour).
+
+The three sensors give qualitatively similar information, though one
+of the SenseAir S8 sensors is noticeably shifted down, and gave a peak
+reading of `r max(x[,3])` ppm, vs the peak of `r max(x[,2])` ppm from
+the Aranet4.
+
+Directly plotting the differences, taking the Aranet4 values as the standard,
+makes those differences more clear.
+
+```{r plot_differences}
+par(mar=c(3.1,4.1,0.6,0.6))
+yl <- c(-100,100)
+
+dif_ylab <- expression(paste("diff in", CO[2], " (in ppm)"))
+
+grayplot(x[,1], x[,4]-x[,2], col=blue, type="l", lwd=2,
+         xlab="Time", ylab=dif_ylab,
+         ylim=yl, xat=NA, vlines=xticks,
+         hlines=c(-100, -50,0,50,100), yaxs="i",
+         hlines.col=c("white", "orange")[c(1,1,2,1,1)])
+axis(side=1, at=xticks, label=xlab, tick=FALSE, mgp=c(0,0.3,0.03))
+lines(x[,1], x[,3]-x[,2], col=pink, lwd=2)
+legend("topright", lwd=2, col=c(blue, pink),
+       devices[-1], bg="gray90")
+```
+
+One of the SenseAir S8 sensors tends to be above the Aranet4 by
+an average of `r round(mean(x[,4])-mean(x[,2]))` ppm, while the
+other tends to be below by `r -round(mean(x[,3])-mean(x[,2]))` ppm.
+The shifts are relatively constant, though the first sensor tends to be off
+a bit more when then readings are low, and the second sensor tends to
+be off a bit more when the readings are high.
+
+If we take the Aranet4 readings to be the gold standard, the RMS error in
+the two SenseAir S8 sensors are
+`r round(sqrt(mean((x[,4]-x[,2])^2)))` and
+`r round(sqrt(mean((x[,3]-x[,2])^2)))` ppm, respectively.
+The largest discrepancies were
+`r round(max(abs(x[,4]-x[,2])))` and `r round(max(abs(x[,3]-x[,2])))`
+ppm, respectively.
+
+If we adjust for the overall shifts in the values, the RMS errors in
+the two SenseAir S8 sensors are reduced to
+`r round(sd(x[,4]-x[,2]))` and
+`r round(sd(x[,3]-x[,2]))` ppm, respectively.
+(These are just the regular SDs of the errors.)
+
+In particular, most of the error in the second sensor is do to a shift that might
+be corrected by calibration.
+
+**In conclusion**, based on this admittedly limited data (from a single
+day), these two SenseAir S8 sensors seem to provide equivalent
+information as the much more expensive Aranet4.
