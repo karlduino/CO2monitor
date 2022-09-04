@@ -52,7 +52,7 @@ for the arduino, i use a full 16-pin header, but I only solder the pins being us
 
 To mount the lcd display, I use two 1/2” 4/40 screws with round heads, with the heads outside the box, and two lock nuts
 
-To mount the arduino, I use three 7/32” 0/80 screws, with the heads instead the box, and three hez nuts. I practically need tweezers to handle these.
+To mount the arduino, I use three 11/32” 0/80 screws, with the heads instead the box, and three hez nuts. I practically need tweezers to handle these.
 
 
 
@@ -62,8 +62,14 @@ To make the connections, I use 8 female-to-female jumpers, 2 each of four colors
 
 
 
+### Load the software
+
+
+
 ### Tape the box shut
 
+If it's working, you can arrange the sensor as you want it and then
+delicately close the lid so the wires all stay inside and so they push
+the sensor down against its opening.
 
-
-### Load the software
+Tape the box shut with a couple of pieces of clear tape.
