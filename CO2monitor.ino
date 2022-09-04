@@ -7,6 +7,8 @@
 
 #define STARTUP_DELAY_MS    8000
 #define TIME_BETW_UPDATE_MS 5000
+#define SAFE_LEVEL  1000
+#define BAD_LEVEL   1400
 
 // Configuration
        // need to use S8_RX = 11 and S8_TX = 10 for arduino nano every
@@ -25,7 +27,7 @@ SoftwareSerial S8_serial(S8_RX_PIN, S8_TX_PIN);
 
 uint8_t subscript2[8] = {0x0, 0x0, 0x0, 0x1E, 0x03, 0x06, 0x0C, 0x1F };
 uint8_t heart[8] = {0x0,0xa,0x1f,0x1f,0xe,0x4,0x0};
-uint8_t smile[8] = 
+uint8_t smile[8] =
   {
     0b00000,
     0b00000,
@@ -36,7 +38,7 @@ uint8_t smile[8] =
     0b01110,
     0b00000
   };
- uint8_t frown[8] = 
+ uint8_t frown[8] =
   {
     0b00000,
     0b00000,
@@ -68,7 +70,7 @@ void setup() {
   // Initialize S8 sensor
   S8_serial.begin(S8_BAUDRATE);
   sensor_S8 = new S8_UART(S8_serial);
-  
+
   // Check if S8 is available
   sensor_S8->get_firmware_version(sensor.firm_version);
   int len = strlen(sensor.firm_version);
@@ -90,7 +92,7 @@ void setup() {
   else lcd.print(sensor.firm_version);
   sensor.sensor_id = sensor_S8->get_sensor_ID();
 
-  if(2000 > n_tries * 250) delay(2000 - n_tries*250);
+  delay(2000);
 
   // wait a bit to try to avoid first reading of 0 ppm
   lcd.setCursor(0,1);
@@ -100,8 +102,19 @@ void setup() {
   lcd.setCursor(0,1);
   lcd.printByte(1);
 
-  delay(STARTUP_DELAY_MS);
+  if(STARTUP_DELAY_MS > n_tries * 250) delay(STARTUP_DELAY_MS - n_tries*250);
 
+  // constant part of the display
+  lcd.clear();
+  lcd.setCursor(5,0);
+  lcd.print("ppm CO");
+  lcd.setCursor(11,0);
+  lcd.printByte(0);  // subscript 2
+
+  lcd.setCursor(0,1);
+  lcd.print("max CO  =");
+  lcd.setCursor(6,1);
+  lcd.printByte(0);  // subscript 2
 }
 
 int max_co2 = 0;
@@ -110,36 +123,35 @@ void loop() {
 
   char buffer[17]; // to hold formated print
 
-  // clear display
-  lcd.clear();
-
-  // Get and display CO2 measure
-  sensor.co2 = sensor_S8->get_co2();
+  // clear bits from the display
   lcd.setCursor(0,0);
-  sprintf(buffer, "%4d ppm CO", sensor.co2);
-  lcd.print(buffer);
-  lcd.setCursor(11,0);
-  lcd.printByte(0);  // subscript 2
-
-  if (sensor.co2 > max_co2) { max_co2 = sensor.co2; }
-  lcd.setCursor(0,1);
-  sprintf(buffer, "max CO  = %4d", max_co2);
-  lcd.print(buffer);
-  lcd.setCursor(6,1);
-  lcd.printByte(0);  // subscript 2
-
-  // clean up warnings
+  lcd.print("    ");
+  lcd.setCursor(10,1);
+  lcd.print("    ");
   lcd.setCursor(13, 0);
   lcd.print("   ");
   lcd.setCursor(15, 1);
   lcd.print(" ");
 
+  // Get and display CO2 measure
+  sensor.co2 = sensor_S8->get_co2();
+  lcd.setCursor(0,0);
+  sprintf(buffer, "%4d", sensor.co2);
+  lcd.print(buffer);
+
+  // max since start-up
+  if (sensor.co2 > max_co2) { max_co2 = sensor.co2; }
+  lcd.setCursor(10,1);
+  sprintf(buffer, "%4d", max_co2);
+  lcd.print(buffer);
+
+  // print warning
   lcd.setCursor(15,0);
-  if(sensor.co2 < 700) {
+  if(sensor.co2 <= SAFE_LEVEL) {
     lcd.printByte(2); // smile
-  } else if(sensor.co2 < 1200) {
+  } else if(sensor.co2 < BAD_LEVEL) {
     lcd.printByte(3); // frown
-  } else { 
+  } else {
     lcd.setCursor(13,0);
     lcd.print("!!!");
     lcd.setCursor(15,1);
