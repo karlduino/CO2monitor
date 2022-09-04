@@ -26,9 +26,14 @@ Here are the parts I used:
   [![shopping cart icon](docs/pics/shopping-cart.png)](https://amzn.to/3R24kxb)
 
 
-Also some wires, include female-female jumpers, and solder and a
-soldering iron (just to get wires onto the SenseAir S8), and some
-small screws, as well as some _very_ small screws.
+To connect the components, you will need some female-to-female jumper
+wires, solder, male header pins, and a soldering iron (for the
+SenseAir S8 sensor, and maybe also for the Arduino if you got one
+without headers installed).
+
+To attach components to the box, you'll need some
+small screws (I used 1/2" 4/40 screws for the LCD display), as well as
+some _very_ small screws (I used **" 0/80 screws for the Arduino).
 
 If you're using an Arduino Nano Every, I found that, in the Arduino
 IDE, you need to first use the Board Manager to install the drivers
@@ -48,10 +53,10 @@ not compatible with the Arduino Nano Every).
 ## Libraries
 
 - [S8_UART](https://www.arduino.cc/reference/en/libraries/s8_uart/)
-  ([![github](https://kbroman.org/icons16/github-icon.png)](https://github.com/jcomas/S8_UART))
+  [![github](https://kbroman.org/icons16/github-icon.png)](https://github.com/jcomas/S8_UART)
 
 - [LCD_I2C](https://www.arduino.cc/reference/en/libraries/lcd_i2c/)
-  ([![github](https://kbroman.org/icons16/github-icon.png)](https://github.com/blackhack/LCD_I2C))
+  [![github](https://kbroman.org/icons16/github-icon.png)](https://github.com/blackhack/LCD_I2C)
 
 
 ## Connections
