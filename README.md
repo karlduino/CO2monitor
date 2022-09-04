@@ -18,7 +18,8 @@ the more expensive [Aranet4](https://aranet.com/products/aranet4/);
 
 ### Parts
 
-The cost of the main components is about US$ 60.
+The cost of the main components is about US$ 60 (mostly the sensor,
+which is about US$ 40).
 
 - [SenseAir S8](https://senseair.com/products/size-counts/s8-lp/)
   [![shopping cart icon](docs/pics/shopping-cart.png)](https://amzn.to/3AyzQMa)
