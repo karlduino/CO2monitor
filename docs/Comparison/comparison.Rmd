@@ -1,4 +1,8 @@
-## Comparison between Aranet4 and SenseAir S8 CO~2~ sensors
+---
+title: Aranet4 vs. SenseAir S8 CO~2~ sensors
+date: 2022-09-04
+output: html_document
+---
 
 We gathered data over the course of a single day to compare the CO~2~
 measurements from an [Aranet4](https://aranet.com/products/aranet4/)
