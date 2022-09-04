@@ -10,6 +10,9 @@ The goal is assess air quality, particularly in classrooms and meeting
 rooms and with concern about COVID-19. The main source of my
 understanding was
 [LibreCO2](https://github.com/danielbernalb/LibreCO2).
+I did a limited comparison between two of the SenseAir S8 monitors and
+the more expensive [Aranet4](https://aranet.com/products/aranet4/);
+[see the results](https://karlduino.github.io/docs/Comparison/comparison.html).
 
 ### Parts
 
