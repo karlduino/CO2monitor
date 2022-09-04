@@ -68,7 +68,7 @@ not compatible with the Arduino Nano Every).
 ### Assembly instructions
 
 See the
-[instructions document](https://karlduino.github.io/CO2sensor/docs/instructions.html),
+[instructions document](https://karlduino.github.io/CO2monitor/docs/instructions.html),
 which attempts to explain the full process:
 
 - prepare the box (drilling holes to mount components and cutting
