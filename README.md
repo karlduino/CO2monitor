@@ -48,24 +48,32 @@ not compatible with the Arduino Nano Every).
 ## Libraries
 
 - [S8_UART](https://www.arduino.cc/reference/en/libraries/s8_uart/)
-  ([github)(https://github.com/jcomas/S8_UART))
+  ([![github](https://kbroman.org/icons16/github-icon.png)](https://github.com/jcomas/S8_UART))
+
 - [LCD_I2C](https://www.arduino.cc/reference/en/libraries/lcd_i2c/)
-  ([github)(https://github.com/blackhack/LCD_I2C))
+  ([![github](https://kbroman.org/icons16/github-icon.png)](https://github.com/blackhack/LCD_I2C))
+
 
 ## Connections
 
 - The 16x2 LCD with I2C has a 4-pin connector:
 
   - 16x2 GND -> Arduino GND (black)
+
   - 16x2 VCC -> Arduino VIN (red)
+
   - 16x2 SDA -> Arduino A4 (green)
+
   - 16x2 SCL -> Arduino A5 (yellow)
 
 - The SenseAir S8 needs soldering; could use two pairs of header pins
 
   - 4-pin side, pin 1 (G+) -> Arduino 5V (red)
+
   - 4-pin side, pin 2 (G0) -> Arduino GND (black)
+
   - 5-pin side, pin 2 -> Arduino D10 (green)
+
   - 5-pin side, pin 3 -> Arduino D11 (yellow)
 
 ## License
