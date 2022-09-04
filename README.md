@@ -14,7 +14,7 @@ understanding was
 Here are the parts I used:
 
 - [SenseAir S8](https://senseair.com/products/size-counts/s8-lp/)
-  [![shopping cart icon](docs/pics/shopping-cart.png)](https://amzn.to/3AyzQMa)
+  [![shopping cart icon](docs/pics/shopping-cart.png | height=15)](https://amzn.to/3AyzQMa)
 
 - [Arduino Nano Every](https://store.arduino.cc/products/arduino-nano-every)
   or [Arduino Nano](https://store.arduino.cc/products/arduino-nano)
