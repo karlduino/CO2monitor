@@ -1,6 +1,6 @@
 ## CO<sub>2</sub> monitor based on an Arduino and a SenseAir S8 sensor
 
-This is a low-cost do-it-yourself CO<sub>2</sub> monitor based on the [SenseAir
+This is a low-cost, do-it-yourself CO<sub>2</sub> monitor based on the [SenseAir
 S8](https://senseair.com/products/size-counts/s8-lp/) sensor, an
 [Arduino Nano
 Every](https://store.arduino.cc/products/arduino-nano-every), and a
