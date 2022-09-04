@@ -13,16 +13,18 @@ understanding was
 
 Here are the parts I used:
 
-- [SenseAir S8](https://senseair.com/products/size-counts/s8-lp/) <a href="https://amzn.to/3AyzQMa"><img alt="shopping cart icon", src="docs/pics/shopping-cart-icon.svg", height=20></a>
-
-  <a href="https://amzn.to/3AyzQMa">blah</a>
+- [SenseAir S8](https://senseair.com/products/size-counts/s8-lp/)
+  [![shopping cart icon](docs/pics/shopping-cart.png)](https://amzn.to/3AyzQMa)
 
 - [Arduino Nano Every](https://store.arduino.cc/products/arduino-nano-every)
   or [Arduino Nano](https://store.arduino.cc/products/arduino-nano)
+
 - 16x2 display with I2C chip
-  <a href="https://amzn.to/3AwG3Z7")><img alt="shopping cart icon", src="docs/pics/shopping-cart-icon.svg", height=20></a>
+  [![shopping cart icon](docs/pics/shopping-cart.png)](https://amzn.to/3AwG3Z7)
+
 - clear plastic box
-  <a href="https://amzn.to/3R24kxb")><img alt="shopping cart icon", src="docs/pics/shopping-cart-icon.svg", height=20></a>
+  [![shopping cart icon](docs/pics/shopping-cart.png)](https://amzn.to/3R24kxb)
+
 
 Also some wires, include female-female jumpers, and solder and a
 soldering iron (just to get wires onto the SenseAir S8), and some
