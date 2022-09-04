@@ -5,6 +5,8 @@
 #include <Wire.h>
 #include <LCD_I2C.h>
 
+#define STARTUP_DELAY_MS    8000
+#define TIME_BETW_UPDATE_MS 5000
 
 // Configuration
        // need to use S8_RX = 11 and S8_TX = 10 for arduino nano every
@@ -14,7 +16,7 @@
 
 SoftwareSerial S8_serial(S8_RX_PIN, S8_TX_PIN);
 
-// set up special character (subscript 2) for LCD display
+// set up special characters for LCD display
 #if defined(ARDUINO) && ARDUINO >= 100
 #define printByte(args)  write(args);
 #else
@@ -22,6 +24,29 @@ SoftwareSerial S8_serial(S8_RX_PIN, S8_TX_PIN);
 #endif
 
 uint8_t subscript2[8] = {0x0, 0x0, 0x0, 0x1E, 0x03, 0x06, 0x0C, 0x1F };
+uint8_t heart[8] = {0x0,0xa,0x1f,0x1f,0xe,0x4,0x0};
+uint8_t smile[8] = 
+  {
+    0b00000,
+    0b00000,
+    0b01010,
+    0b00000,
+    0b00000,
+    0b10001,
+    0b01110,
+    0b00000
+  };
+ uint8_t frown[8] = 
+  {
+    0b00000,
+    0b00000,
+    0b01010,
+    0b00000,
+    0b00000,
+    0b00000,
+    0b01110,
+    0b10001
+  };
 
 S8_UART *sensor_S8;
 S8_sensor sensor;
@@ -35,7 +60,10 @@ void setup() {
   lcd.backlight();
   lcd.setCursor(0,0);
   lcd.print("Starting up...");
-  lcd.createChar(1, subscript2);
+  lcd.createChar(0, subscript2);
+  lcd.createChar(1, heart);
+  lcd.createChar(2, smile);
+  lcd.createChar(3, frown);
 
   // Initialize S8 sensor
   S8_serial.begin(S8_BAUDRATE);
@@ -54,23 +82,25 @@ void setup() {
 
   // Show basic S8 sensor info
   lcd.setCursor(0,0);
-  lcd.print("Yay! SenseAir S8");
+  lcd.print("SenseAir S8");
   lcd.setCursor(0,1);
   lcd.print("Firmware:");
-  lcd.setCursor(9,1);
-  if (len == 0) lcd.print("not found");
+  lcd.setCursor(10,1);
+  if (len == 0) lcd.print("N/A");
   else lcd.print(sensor.firm_version);
   sensor.sensor_id = sensor_S8->get_sensor_ID();
 
   if(2000 > n_tries * 250) delay(2000 - n_tries*250);
 
   // wait a bit to try to avoid first reading of 0 ppm
+  lcd.setCursor(0,1);
+  lcd.print("                ");
   lcd.setCursor(0,0);
   lcd.print("Warming up...   ");
   lcd.setCursor(0,1);
-  lcd.print("                ");
+  lcd.printByte(1);
 
-  delay(4000);
+  delay(STARTUP_DELAY_MS);
 
 }
 
@@ -89,16 +119,33 @@ void loop() {
   sprintf(buffer, "%4d ppm CO", sensor.co2);
   lcd.print(buffer);
   lcd.setCursor(11,0);
-  lcd.printByte(1);  // subscript 2
+  lcd.printByte(0);  // subscript 2
 
   if (sensor.co2 > max_co2) { max_co2 = sensor.co2; }
   lcd.setCursor(0,1);
   sprintf(buffer, "max CO  = %4d", max_co2);
   lcd.print(buffer);
   lcd.setCursor(6,1);
-  lcd.printByte(1);  // subscript 2
+  lcd.printByte(0);  // subscript 2
 
+  // clean up warnings
+  lcd.setCursor(13, 0);
+  lcd.print("   ");
+  lcd.setCursor(15, 1);
+  lcd.print(" ");
+
+  lcd.setCursor(15,0);
+  if(sensor.co2 < 700) {
+    lcd.printByte(2); // smile
+  } else if(sensor.co2 < 1200) {
+    lcd.printByte(3); // frown
+  } else { 
+    lcd.setCursor(13,0);
+    lcd.print("!!!");
+    lcd.setCursor(15,1);
+    lcd.printByte(3); // frown
+  }
 
   // Wait 5 second for next measure
-  delay(5000);
+  delay(TIME_BETW_UPDATE_MS);
 }
