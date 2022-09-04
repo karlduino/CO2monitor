@@ -99,10 +99,21 @@ void setup() {
   lcd.print("                ");
   lcd.setCursor(0,0);
   lcd.print("Warming up...   ");
-  lcd.setCursor(0,1);
-  lcd.printByte(1);
 
-  if(STARTUP_DELAY_MS > n_tries * 250) delay(STARTUP_DELAY_MS - n_tries*250);
+  // beating heart
+  if(STARTUP_DELAY_MS > n_tries * 250) { // beating heart
+    int n_beats = (STARTUP_DELAY_MS - n_tries*250)/1000 + 1;
+
+    for(int beat=0; beat < n_beats; beat++) {
+      lcd.setCursor(14,1);
+      lcd.printByte(1);
+      delay(800);
+
+      lcd.setCursor(14,1);
+      lcd.print(" ");
+      delay(200);
+    }
+  }
 
   // constant part of the display
   lcd.clear();
