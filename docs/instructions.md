@@ -35,7 +35,7 @@ Tape the template to the bottom of the box, making sure the lid
 opening is oriented correctly. most important is lining up the top and
 sides, because the lcd display is a very tight fit.
 
-![box with drilling template, with punch tool for marking drilling locations](https://karlduino.org/docs/pics/01_with_template.jpg)
+![box with drilling template, with punch tool for marking drilling locations](https://karlduino.org/CO2monitor/docs/pics/01_with_template.jpg)
 
 I use a punch tool to put a dent into each of the 9 spots I want to
 drill. This really helps to get the drill bit started and at the right
@@ -48,14 +48,14 @@ puch all they way through the plastic.
 Before removing the template, mark the cut-out for the micro-USB with
 a sharpie.
 
-![box with marks for drilling and cutting locations](https://karlduino.org/docs/pics/02_with_marks.jpg)
+![box with marks for drilling and cutting locations](https://karlduino.org/CO2monitor/docs/pics/02_with_marks.jpg)
 
 I use a 7/64" drill bit for the two holes for the LED display
 (top-right and middle-left on the template). They'll take 1/2" 4/40
 screws. I use a 1/16" drill bit for the three holes for the Arduino
 and the four holes for the corners of the sensor cut-out.
 
-![box with holes all drilled](https://karlduino.org/docs/pics/03_drilled.jpg)
+![box with holes all drilled](https://karlduino.org/CO2monitor/docs/pics/03_drilled.jpg)
 
 When cutting in plastic, it can be useful to heat the blade with a
 lighter or small torch. (I didn't heat the drill bit for the drilling;
@@ -74,7 +74,7 @@ cutting.
 I should have said: don’t forget to wear eye protection (for me,
 reading glasses).
 
-![box fully prepared, with my cutting tool and torch](https://karlduino.org/docs/pics/04_holes_cut.jpg)
+![box fully prepared, with my cutting tool and torch](https://karlduino.org/CO2monitor/docs/pics/04_holes_cut.jpg)
 
 
 ### Solder headers onto the components
