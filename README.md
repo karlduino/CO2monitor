@@ -11,7 +11,9 @@ rooms and with concern about COVID-19. The main source of my
 understanding was
 [LibreCO2](https://github.com/danielbernalb/LibreCO2).
 
-Here are the parts I used:
+### Parts
+
+The cost of the main components is about US$ 60.
 
 - [SenseAir S8](https://senseair.com/products/size-counts/s8-lp/)
   [![shopping cart icon](docs/pics/shopping-cart.png)](https://amzn.to/3AyzQMa)
@@ -25,15 +27,19 @@ Here are the parts I used:
 - clear plastic box
   [![shopping cart icon](docs/pics/shopping-cart.png)](https://amzn.to/3R24kxb)
 
-
-To connect the components, you will need some female-to-female jumper
-wires, solder, male header pins, and a soldering iron (for the
-SenseAir S8 sensor, and maybe also for the Arduino if you got one
-without headers installed).
+To connect the components, you will need 8 female-to-female jumper
+wires, solder, a soldering iron, 2 2-pin male headers for the SenseAir
+S8 sensor, and maybe also 2 16-pin male headers for the Arduino (if
+you got one without headers installed).
 
 To attach components to the box, you'll need some
 small screws (I used 1/2" 4/40 screws for the LCD display), as well as
-some _very_ small screws (I used **" 0/80 screws for the Arduino).
+some _very_ small screws (I used 11/32" 0/80 screws for the Arduino).
+
+
+### Code
+
+You'll find the code on [Github](https://github.com/karlduino/CO2monitor).
 
 If you're using an Arduino Nano Every, I found that, in the Arduino
 IDE, you need to first use the Board Manager to install the drivers
@@ -50,7 +56,7 @@ older [LiquidCrystal_I2C
 library](https://github.com/johnrickman/LiquidCrystal_I2C) (which is
 not compatible with the Arduino Nano Every).
 
-## Libraries
+### Libraries
 
 - [S8_UART](https://www.arduino.cc/reference/en/libraries/s8_uart/)
   [![github](https://kbroman.org/icons16/github-icon.png)](https://github.com/jcomas/S8_UART)
@@ -59,17 +65,34 @@ not compatible with the Arduino Nano Every).
   [![github](https://kbroman.org/icons16/github-icon.png)](https://github.com/blackhack/LCD_I2C)
 
 
-## Connections
+### Assembly instructions
+
+See the
+[instructions document](https://karlduino.github.io/CO2sensor/docs/instructions.html),
+which attempts to explain the full process:
+
+- prepare the box (drilling holes to mount components and cutting
+  holes for the sensor and the USB cable)
+
+- Solder headers onto the main components
+
+- Mount the components
+
+- Make connections (see below)
+
+
+
+### Connections
 
 - The 16x2 LCD with I2C has a 4-pin connector:
 
-  - 16x2 GND -> Arduino GND (black)
+    - 16x2 GND -> Arduino GND (black)
 
-  - 16x2 VCC -> Arduino VIN (red)
+    - 16x2 VCC -> Arduino VIN (red)
 
-  - 16x2 SDA -> Arduino A4 (green)
+    - 16x2 SDA -> Arduino A4 (green)
 
-  - 16x2 SCL -> Arduino A5 (yellow)
+    - 16x2 SCL -> Arduino A5 (yellow)
 
 - The SenseAir S8 needs soldering; could use two pairs of header pins
 
@@ -81,6 +104,7 @@ not compatible with the Arduino Nano Every).
 
   - 5-pin side, pin 3 -> Arduino D11 (yellow)
 
-## License
+
+### License
 
 This work released under the [MIT License](LICENSE.md).
