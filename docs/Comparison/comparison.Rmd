@@ -15,6 +15,8 @@ The monitors were in a common area, sitting all together. We had
 closed all doors and windows in the morning, and then opening them again
 late afternoon.
 
+![Aranet4 with SenseAir S8 based CO~2~ monitors](https://karlduino.org/CO2monitor/docs/pics/comparison_experiment.jpg)
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, dev="svg",
                       message=FALSE, warning=FALSE,
