@@ -1,6 +1,6 @@
-## CO2 monitor based on an Arduino and a SenseAir S8 sensor
+## CO<sub>2</sub> monitor based on an Arduino and a SenseAir S8 sensor
 
-This is a low-cost do-it-yourself CO2 monitor based on the [SenseAir
+This is a low-cost do-it-yourself CO<sub>2</sub> monitor based on the [SenseAir
 S8](https://senseair.com/products/size-counts/s8-lp/) sensor, an
 [Arduino Nano
 Every](https://store.arduino.cc/products/arduino-nano-every), and a
@@ -14,7 +14,7 @@ I did a limited comparison between two of the SenseAir S8 monitors and
 the more expensive [Aranet4](https://aranet.com/products/aranet4/);
 [see the results](https://karlduino.github.io/docs/Comparison/comparison.html).
 
-[![CO2 monitor tied to a wooden post with a pink cord](https://karlduino.github.io/docs/pics/co2monitor_sm.jpg)](https://karlduino.github.io/docs/pics/co2monitor.jpg)
+[![CO2 monitor tied to a wooden post with a pink cord](https://karlduino.github.io/CO2monitor/docs/pics/co2monitor_sm.jpg)](https://karlduino.github.io/CO2monitor/docs/pics/co2monitor.jpg)
 
 ### Parts
 
