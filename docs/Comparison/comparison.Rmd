@@ -1,0 +1,52 @@
+## Comparison between Aranet4 and SenseAir S8 CO2 sensors
+
+We gathered data over the course of a single day to compare the CO2
+measurements from an [Aranet4](https://aranet.com/products/aranet4/)
+and two different [SenseAir S8
+LP](https://senseair.com/products/size-counts/s8-lp/) CO2 sensors. The
+monitors were in a common area, sitting all together. We had closed
+all doors and windows mid-morning, and then opening them again late
+afternoon.
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, dev="svg",
+                      message=FALSE, warning=FALSE,
+                      fig.width=11, fig.height=6)
+options(scipen=10, width=110)
+library(chron)   # for times
+library(broman)  # for graphs
+```
+
+```{r load_data, include=FALSE}
+x <- read.csv("data.csv", comment.char="#")
+
+x$time <- chron(times=paste0(x$time, ":00"))
+
+# calibrate the S8s vs the Aranet4 by subtracting their averages
+x[,5:6] <- t(t(x[,3:4])-colMeans(x[,3:4])+mean(x[,2]))
+```
+
+Here's a plot of the three sensors' values over time. The Aranet4 is
+in black; the two Sensair S8s are in blue and pink.
+
+```{r plot_data}
+par(mar=c(3.1,4.1,0.6,0.6))
+yl <- range(x[,2:4])
+pink <- "violetred"
+blue <- "slateblue"
+
+xlab <- c("6am", "9am", "noon", "3pm", "6pm", "9pm")
+xticks <- chron(times=paste0(c("06", "09", "12", "15", "18", "21"), ":00:00"))
+
+ylab <- expression(paste(CO[2], " (in ppm)"))
+devices <- c("Aranet4", paste0("SenseAir S8 #", 1:2))
+
+grayplot(x[,1], x[,2], type="l", lwd=2, mgp.y=c(3.1,0.4,0.4),
+         xlab="Time", ylab=ylab,
+         ylim=range(yl), xat=NA, vlines=xticks)
+axis(side=1, at=xticks, label=xlab, tick=FALSE, mgp=c(0,0.3,0.03))
+lines(x[,1], x[,3], col=pink, lwd=2)
+lines(x[,1], x[,4], col=blue, lwd=2)
+legend("topright", lwd=2, col=c("black", blue, pink),
+       devices, bg="gray90")
+```
