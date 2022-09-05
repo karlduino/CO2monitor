@@ -13,10 +13,20 @@
 // Configuration
        // need to use S8_RX = 11 and S8_TX = 10 for arduino nano every
        // also works for (old) arduino nano
-#define S8_RX_PIN 11 // yellow (middle pin on 5-pin header)
-#define S8_TX_PIN 10 // green  (to left of that, looking down at the label)
+#define S8_TX_PIN 11 // yellow (middle pin on 5-pin header)
+#define S8_RX_PIN 10 // green  (to left of that, looking down at the label)
 
-SoftwareSerial S8_serial(S8_RX_PIN, S8_TX_PIN);
+// The RX/TX labels are really confusing
+//
+// what're defined here as S8_RX and S8_TX are the pins
+// where the S8 is receiving and transmitting, respectively
+//
+// They're connected to the opposite pins on the arduino,
+// RX <-> TX, TX <-> RX
+//
+// and the SoftwareSerial object should get the
+// arguments (arduino_RX, arduino_TX)
+SoftwareSerial S8_serial(S8_TX_PIN, S8_RX_PIN);
 
 // set up special characters for LCD display
 #if defined(ARDUINO) && ARDUINO >= 100
