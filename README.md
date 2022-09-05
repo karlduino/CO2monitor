@@ -102,29 +102,29 @@ which attempts to explain the full process:
 
 ### Connections
 
-- The 16x2 LCD with I2C has a 4-pin connector:
+The 16x2 LCD with I2C has a 4-pin connector:
 
-    - 16x2 GND → Arduino GND (black)
+  - 16x2 GND → Arduino GND (black)
 
-    - 16x2 VCC → Arduino VIN (red)
+  - 16x2 VCC → Arduino VIN (red)
 
-    - 16x2 SDA → Arduino A4 (green)
+  - 16x2 SDA → Arduino A4 (green)
 
-    - 16x2 SCL → Arduino A5 (yellow)
+  - 16x2 SCL → Arduino A5 (yellow)
 
-- The SenseAir S8 needs soldering; you could use two pairs of header
-  pins. See page 3 of
-  [the
-  specs](https://rmtplusstoragesenseair.blob.core.windows.net/docs/publicerat/PSP126.pdf)
-  for pin information, which is not printed on the sensor.
+The SenseAir S8 needs soldering; you could use two pairs of header
+pins. See page 3 of
+[the
+specs](https://rmtplusstoragesenseair.blob.core.windows.net/docs/publicerat/PSP126.pdf)
+for pin information, which is not printed on the sensor.
 
-  - 4-pin side, pin 1 (G+) → Arduino 5V (red)
+- 4-pin side, pin 1 (G+) → Arduino 5V (red)
 
-  - 4-pin side, pin 2 (G0) → Arduino GND (black)
+- 4-pin side, pin 2 (G0) → Arduino GND (black)
 
-  - 5-pin side, pin 2 (UART RX) → Arduino D10 (green)
+- 5-pin side, pin 2 (UART RX) → Arduino D10 (green)
 
-  - 5-pin side, pin 3 (UART TX) → Arduino D11 (yellow)
+- 5-pin side, pin 3 (UART TX) → Arduino D11 (yellow)
 
 
 ### License
