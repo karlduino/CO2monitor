@@ -111,7 +111,23 @@ the two SenseAir S8 sensors are reduced to
 In particular, most of the error in the second sensor is do to a shift that might
 be corrected by calibration.
 
-**In conclusion**, based on this admittedly limited data (from a single
+I left it outside for a bit, and sure enough that sensor needs
+calibration. It showed 385 ppm CO~2~ after sitting outside, whereas
+outdoor air should be >400 and more like 420 ppm.
+
+![The 2nd SenseAir S8 sensor (reading 385) with the Aranet4 (reading 428), getting some fresh air](https://karlduino.org/CO2monitor/docs/pics/needs_calibration.jpg)
+
+The easiest way to calibrate it is to just leave it outside for a
+while. The SenseAir S8 has built in "Automatic Baseline Correction
+(ABC)" with an adjustment period of 8 days (see page 7 of the [sensor's
+documentation](https://rmtplusstoragesenseair.blob.core.windows.net/docs/publicerat/PSP126.pdf)),
+so I'll just wait.
+
+I should re-stage the photo to include all three sensors. I should
+re-calibrate them and re-run the experiment. But instead, I'm moving
+on to other tasks.
+
+**In conclusion**, based on these admittedly limited data (from a single
 day), these two SenseAir S8 sensors seem to provide equivalent
 information as the much more expensive Aranet4.
 
