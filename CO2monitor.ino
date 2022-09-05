@@ -27,28 +27,8 @@ SoftwareSerial S8_serial(S8_RX_PIN, S8_TX_PIN);
 
 uint8_t subscript2[8] = {0x0, 0x0, 0x0, 0x1E, 0x03, 0x06, 0x0C, 0x1F };
 uint8_t heart[8] = {0x0,0xa,0x1f,0x1f,0xe,0x4,0x0};
-uint8_t smile[8] =
-  {
-    0b00000,
-    0b00000,
-    0b01010,
-    0b00000,
-    0b00000,
-    0b10001,
-    0b01110,
-    0b00000
-  };
- uint8_t frown[8] =
-  {
-    0b00000,
-    0b00000,
-    0b01010,
-    0b00000,
-    0b00000,
-    0b00000,
-    0b01110,
-    0b10001
-  };
+uint8_t smile[8] = {0x0,0x0,0xa,0x0,0x0,0x11,0xe,0x0};
+uint8_t frown[8] = {0x0,0x0,0xa,0x0,0x0,0x0,0xe,0x11};
 
 S8_UART *sensor_S8;
 S8_sensor sensor;
@@ -169,6 +149,6 @@ void loop() {
     lcd.printByte(3); // frown
   }
 
-  // Wait 5 second for next measure
+  // Wait for selected time before next measure
   delay(TIME_BETW_UPDATE_MS);
 }
