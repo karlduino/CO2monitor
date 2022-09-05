@@ -81,11 +81,40 @@ reading glasses).
 
 I’m using two pairs of breakaway male header pins for the S8 sensor.
 It’s tricky to hold them in place for soldering. And you don't want to
-mess up a $40 sensor.
+mess up a US$ 40 sensor.
 
-For the Arduino, I use a full 16-pin header, but I only solder the
-pins being used. You could go back and solder the rest later, if the
-Arduino were to be reused for a different project.
+Page 3 of the [SenseAir S8
+specs](https://rmtplusstoragesenseair.blob.core.windows.net/docs/publicerat/PSP126.pdf)
+shows the pin assignments.
+
+![SenseAir S8 pin assignments](https://karlduino.org/CO2monitor/docs/pics/s8_pin_assignment.jpg)
+
+We want two pins on the 4-pin side, which
+nicely has labels: G+ on the end, on G0 next to it. Then we want two
+pins on the 5-pin side, one in the middle (TX) and the one to its
+right (RX), in the same direction as the ones we're doing on the 4-pin
+side.
+
+![SenseAir S8 laying so the side that gets air is face up, with a pairs of two-pin headers](https://karlduino.org/CO2monitor/docs/pics/05_sensor_before_soldering.jpg)
+
+The easiest way to hold the pins in place for soldering is probably
+"blu tack": that blue putty for hanging posters.
+
+![SenseAir S8 held in a vice with header pins held in place for soldering using blu tack](https://karlduino.org/CO2monitor/docs/pics/06_blu_tack.jpg)
+
+Here's the final product. It's not my best work, but the photo is
+blurry enough that you can't tell.
+
+![SenseAir S8 with a pair of two-pin headers soldered in place](https://karlduino.org/CO2monitor/docs/pics/07_sensor_after_soldering.jpg)
+
+
+You can get an Arduino Nano Every with header pins already in place,
+but it's a bit cheaper (and maybe more flexible) to get them without
+the header pins.  I'll use a full 16-pin header, but I only solder the
+pins being used, plus the pins at the end (for stability). You could
+go back and solder the rest later, if the Arduino were to be reused
+for a different project. The easiest way to holder the pins in place
+for soldering, probably, is to put it all in a breadboard.
 
 
 
