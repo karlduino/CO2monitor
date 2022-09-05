@@ -193,7 +193,7 @@ the sensor down against its opening.
 Tape the box shut with a couple of pieces of clear tape.
 
 
-### Powering the project
+### Power the project
 
 You use the same micro-USB port to power the project as to load the
 software. You should be able to use any USB power adapter. You should
