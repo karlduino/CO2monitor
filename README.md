@@ -14,7 +14,7 @@ understanding was
 post](https://emariete.com/en/meter-co2-esp8266-nodemcu-sensor-senseair-s8/)
 by [Mariete](https://emariete.com/en/).
 
-I did a limited comparison between two of the SenseAir S8 monitors and
+I did a limited comparison between two of these SenseAir S8-based monitors and
 the more expensive [Aranet4](https://aranet.com/products/aranet4/);
 [see the results](https://karlduino.org/CO2monitor/docs/Comparison/comparison.html).
 
@@ -68,12 +68,17 @@ not compatible with the Arduino Nano Every).
 
 ### Libraries
 
+The code uses the following libraries to interact with the S8 sensor
+and the LCD display, respectively.
+
 - [S8_UART](https://www.arduino.cc/reference/en/libraries/s8_uart/)
   [![github](https://kbroman.org/icons16/github-icon.png)](https://github.com/jcomas/S8_UART)
 
 - [LCD_I2C](https://www.arduino.cc/reference/en/libraries/lcd_i2c/)
   [![github](https://kbroman.org/icons16/github-icon.png)](https://github.com/blackhack/LCD_I2C)
 
+In the Arduino IDE, install these libraries with the
+Library Manager.
 
 ### Assembly instructions
 
@@ -81,29 +86,31 @@ See the
 [instructions document](https://karlduino.org/CO2monitor/docs/instructions.html),
 which attempts to explain the full process:
 
-- prepare the box (drilling holes to mount components and cutting
+- Prepare the box (drilling holes to mount components and cutting
   holes for the sensor and the micro-USB cable)
 
 - Solder headers onto the main components
 
-- Mount the components
+- Mount the components in the box
 
 - Make connections (see below)
 
 - Load the software
+
+- Adjust the contrast on the LCD display
 
 
 ### Connections
 
 - The 16x2 LCD with I2C has a 4-pin connector:
 
-    - 16x2 GND -> Arduino GND (black)
+    - 16x2 GND → Arduino GND (black)
 
-    - 16x2 VCC -> Arduino VIN (red)
+    - 16x2 VCC → Arduino VIN (red)
 
-    - 16x2 SDA -> Arduino A4 (green)
+    - 16x2 SDA → Arduino A4 (green)
 
-    - 16x2 SCL -> Arduino A5 (yellow)
+    - 16x2 SCL → Arduino A5 (yellow)
 
 - The SenseAir S8 needs soldering; you could use two pairs of header
   pins. See page 3 of
@@ -111,13 +118,13 @@ which attempts to explain the full process:
   specs](https://rmtplusstoragesenseair.blob.core.windows.net/docs/publicerat/PSP126.pdf)
   for pin information, which is not printed on the sensor.
 
-  - 4-pin side, pin 1 (G+) -> Arduino 5V (red)
+  - 4-pin side, pin 1 (G+) → Arduino 5V (red)
 
-  - 4-pin side, pin 2 (G0) -> Arduino GND (black)
+  - 4-pin side, pin 2 (G0) → Arduino GND (black)
 
-  - 5-pin side, pin 2 (UART RX) -> Arduino D10 (green)
+  - 5-pin side, pin 2 (UART RX) → Arduino D10 (green)
 
-  - 5-pin side, pin 3 (UART TX) -> Arduino D11 (yellow)
+  - 5-pin side, pin 3 (UART TX) → Arduino D11 (yellow)
 
 
 ### License
