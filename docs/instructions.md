@@ -111,6 +111,11 @@ To make the connections, I use 8 female-to-female jumpers, 2 each of
 four colors: green, yellow, black, and red. Not very permanent and so
 they could eventually get rattled loose, but super easy.
 
+You'll need to bend back the pins (carefully) on the LCD display, and
+bend them apart a bit, two above and two below the blue contrast
+potentiometer. Otherwise you won't be able to close the lid.
+
+
 
 
 ### Load the software
@@ -139,6 +144,15 @@ Download the software for this project,
 [`CO2monitor.ino`](https://raw.githubusercontent.com/karlduino/CO2monitor/main/CO2monitor.ino)
 and open it in the Arduino IDE. Upload it to your board, and it'll
 immediately start running.
+
+
+### Adjust the LCD contrast
+
+You will need to adjust the contrast on the LCD display, using a small
+screw to turn the blue potentiometer on the back of the LCD, near the
+wire connections. You probably won't be able to read the text on the
+display until you do.
+
 
 
 ### Tape the box shut
