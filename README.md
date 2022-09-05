@@ -9,7 +9,11 @@ Every](https://store.arduino.cc/products/arduino-nano-every), and a
 The goal is assess air quality, particularly in classrooms and meeting
 rooms and with concern about COVID-19. The main source of my
 understanding was
-[LibreCO2](https://github.com/danielbernalb/LibreCO2).
+[LibreCO2](https://github.com/danielbernalb/LibreCO2). Also see
+[this useful
+post](https://emariete.com/en/meter-co2-esp8266-nodemcu-sensor-senseair-s8/)
+by [Mariete](https://emariete.com/en/).
+
 I did a limited comparison between two of the SenseAir S8 monitors and
 the more expensive [Aranet4](https://aranet.com/products/aranet4/);
 [see the results](https://karlduino.org/CO2monitor/docs/Comparison/comparison.html).
@@ -18,8 +22,10 @@ the more expensive [Aranet4](https://aranet.com/products/aranet4/);
 
 ### Parts
 
-The cost of the main components is about US$ 60 (mostly the sensor,
-which is about US$ 40).
+The cost of the main components is about US$ 60. (Most of the cost is
+the sensor, which is about US$ 40. If you're willing to wait a month
+for shipping, you can get it much cheaper
+[via AliExpress](https://s.click.aliexpress.com/e/_9GsnY9)).
 
 - [SenseAir S8](https://senseair.com/products/size-counts/s8-lp/)
   [![shopping cart icon](docs/pics/shopping-cart.png)](https://amzn.to/3AyzQMa)
