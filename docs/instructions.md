@@ -9,15 +9,15 @@ to assess the air quality in their work spaces, including classrooms.
 We got a pile of small clear plastic boxes, 3.2" square and a bit less
 than 1" tall. It just barely fits the LCD display we're using.
 
-We mount the LCD display and the arduino inside the box, with the LCD
+We mount the LCD display and the Arduino inside the box, with the LCD
 display facing down and out. We need to drill holes in the box for
 screws to mount these components, plus a cut-out for the sensor (so
 that it can get outside air) and a cut-out for a micro- or mini-USB
-cable give power to the arduino.
+cable give power to the Arduino.
 
-The arduino may need header pins soldered on; the sensor definitely
+The Arduino may need header pins soldered on; the sensor definitely
 will. The drilling and cutting and soldering are the hard parts of
-this assembly. We then connect the components with premade
+this assembly. We then connect the components with pre-made
 female-to-female jumper cables.
 
 
@@ -33,7 +33,7 @@ same (in particular, don’t let it “shrink to printable area”).
 
 Tape the template to the bottom of the box, making sure the lid
 opening is oriented correctly. most important is lining up the top and
-sides, because the lcd display is a very tight fit.
+sides, because the LCD display is a very tight fit.
 
 ![box with drilling template, with punch tool for marking drilling locations](https://karlduino.org/CO2monitor/docs/pics/01_with_template.jpg)
 
@@ -43,7 +43,7 @@ spot, but only if the punch is done very carefully with no slipping. I
 like the double-head kind that's a big spring (see the image above),
 but it takes some practice to get enough force to make a good mark
 that you can find with the drill bit, but not so much force that you
-puch all they way through the plastic.
+punch all they way through the plastic.
 
 Before removing the template, mark the cut-out for the micro-USB with
 a sharpie.
@@ -79,28 +79,66 @@ reading glasses).
 
 ### Solder headers onto the components
 
-I’m using two pairs of breakaway male header pins for the s8 sensor. it’s tricky to hold them in place for aoldering
+I’m using two pairs of breakaway male header pins for the S8 sensor.
+It’s tricky to hold them in place for soldering. And you don't want to
+mess up a $40 sensor.
 
-for the arduino, i use a full 16-pin header, but I only solder the pins being used. could go back and solder the rest later, if the arduino were to be reused for a different project
+For the Arduino, I use a full 16-pin header, but I only solder the
+pins being used. You could go back and solder the rest later, if the
+Arduino were to be reused for a different project.
 
 
 
 ### Mount the components
 
-To mount the lcd display, I use two 1/2” 4/40 screws with round heads, with the heads outside the box, and two lock nuts
+To mount the LCD display, I use two 1/2” 4/40 screws with round heads,
+with the heads outside the box, and two lock nuts.
 
-To mount the arduino, I use three 11/32” 0/80 screws, with the heads instead the box, and three hez nuts. I practically need tweezers to handle these.
+To mount the Arduino, I use three 11/32” 0/80 screws, with the heads
+instead the box, and three hex nuts. (I would do it the other
+way-round, but I just couldn't handle the tiny screws in the tight
+spaces to do it that way. I practically need tweezers to handle
+these screws.) You can cut off the excess screw with just an angle
+wire cutter, but don't do it _too_ short as you might want to take
+them off and put them on again and their length was the one thing they
+had going for them.
 
 
 
 ### Make connections
 
-To make the connections, I use 8 female-to-female jumpers, 2 each of four colors: green, yellow, black, and red.
+To make the connections, I use 8 female-to-female jumpers, 2 each of
+four colors: green, yellow, black, and red. Not very permanent and so
+they could eventually get rattled loose, but super easy.
 
 
 
 ### Load the software
 
+Download and install the [Arduino
+IDE](https://www.arduino.cc/en/software).
+
+Open the IDE, and then use a micro-USB cable to connect your Arduino
+Nano Every to your computer.
+
+Then select your board: On the menu bar, click Tools, and then
+select your board under Boards. If you don't see it listed, click
+"Board Manager" at the top of the list and install the megaAVR boards.
+You may then have a choice between megaAVR and something else, and
+when you go into megaAVR, you'll see the Nano Every as one of the
+options.
+
+In that Tools menu, your board should show up as you having selected
+Nano Every. Underneath that, select `Registers emulation: None
+(ATMEGA4809)`.
+
+In the next item down in the Tools menu, you need to select your port.
+Hopefully you'll see just one choice.
+
+Download the software for this project,
+[`CO2monitor.ino`](https://raw.githubusercontent.com/karlduino/CO2monitor/main/CO2monitor.ino)
+and open it in the Arduino IDE. Upload it to your board, and it'll
+immediately start running.
 
 
 ### Tape the box shut
@@ -110,3 +148,10 @@ delicately close the lid so the wires all stay inside and so they push
 the sensor down against its opening.
 
 Tape the box shut with a couple of pieces of clear tape.
+
+
+### Powering the project
+
+You use the same micro-USB port to power the project as to load the
+software. You should be able to use any USB power adapter. You should
+also be able to use any USB backup battery, like for a phone.
