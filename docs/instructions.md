@@ -37,23 +37,25 @@ sides, because the LCD display is a very tight fit.
 
 ![box with drilling template, with punch tool for marking drilling locations](https://karlduino.org/CO2monitor/docs/pics/01_with_template.jpg)
 
-I use a punch tool to put a dent into each of the 9 spots I want to
-drill. This really helps to get the drill bit started and at the right
-spot, but only if the punch is done very carefully with no slipping. I
-like the double-head kind that's a big spring (see the image above),
-but it takes some practice to get enough force to make a good mark
-that you can find with the drill bit, but not so much force that you
-punch all they way through the plastic.
+After breaking a bunch of boxes with a bunch tool (pictured above), I
+ended up finding that the easiest thing to do is just to drill
+directly through the template into the box with a 1/16" drill bit at
+each of the 9 spots. This small drill bit is pretty easy to line up
+and get started without slipping.
 
 Before removing the template, mark the cut-out for the micro-USB with
 a sharpie.
 
 ![box with marks for drilling and cutting locations](https://karlduino.org/CO2monitor/docs/pics/02_with_marks.jpg)
 
-I use a 7/64" drill bit for the two holes for the LED display
-(top-right and middle-left on the template). They'll take 1/2" 4/40
-screws. I use a 1/16" drill bit for the three holes for the Arduino
-and the four holes for the corners of the sensor cut-out.
+Again, use the 1/16" drill bit for all nine positions. Then go back to
+the top two positions (top-right and middle-left on the template),
+which will hold the LCD display, and enlarge the holes using a 7/64"
+drill bit. These will take 1/2" 4/40 screws.
+
+The other seven holes include three for the Arduino (in which I use
+11/32" 0/80 screws) and four holes for the corners of the sensor
+cut-out.
 
 ![box with holes all drilled](https://karlduino.org/CO2monitor/docs/pics/03_drilled.jpg)
 
