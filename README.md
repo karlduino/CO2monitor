@@ -46,6 +46,7 @@ you got one without headers installed).
 To attach components to the box, you'll need some
 small screws (I used 1/2" 4/40 screws for the LCD display), as well as
 some _very_ small screws (I used 11/32" 0/80 screws for the Arduino).
+I get them from [McMaster-Carr](https://mcmaster.com).
 
 
 ### Code

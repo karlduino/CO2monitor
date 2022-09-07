@@ -134,6 +134,9 @@ wire cutter, but don't do it _too_ short as you might want to take
 them off and put them on again and their length was the one thing they
 had going for them.
 
+I get these small screws and nuts
+[McMaster-Carr](https://mcmaster.com).
+
 
 
 ### Make connections
