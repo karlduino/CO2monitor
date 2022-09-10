@@ -278,3 +278,14 @@ seconds, it will reset the baseline to 0 ppm, which you definitely
 don't want.)
 
 ![Wires for calibration: three solid wires soldered together plus a female-to-female jumper](https://karlduino.org/CO2monitor/docs/pics/11_wires_for_calibration.jpg)
+
+So, following the [instructions from
+Mariete](https://emariete.com/en/meter-co2-esp8266-nodemcu-sensor-senseair-s8/#Calibracion_del_sensor_de_CO2_Senseair_S8_LP):
+
+- Leave the monitor running, out in fresh air, for 15 minutes
+
+- Touch that bCal_in pin to ground for 5 seconds
+
+- Let it continue running for another 5 minutes
+
+That's the theory, anyway.
