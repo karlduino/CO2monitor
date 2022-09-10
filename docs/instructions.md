@@ -247,3 +247,32 @@ You use the same micro-USB port to power the project as to load the
 software. You should be able to use any USB power adapter. You should
 also be able to use any USB backup battery, like for a phone. Or you
 can power the project with a USB port in a computer.
+
+
+
+### Calibration
+
+These SenseAir S8 including some auto-calibration feature (automatic
+baseline calibration, ABC). It
+considers past measurements and makes an
+adjustment up or down, changing the baseline by no more than about
+30-50 ppm every 8 days.
+
+If you place the CO2 monitor outside in fresh air for 5-10 minutes, it
+should give a reading that is close to 420 ppm. If it reads much too
+high or much too low (say 320 or 500), you may want to manually
+calibrate it.
+
+I did this by soldering three solid wires together and then using that
+plus a female-to-female jumper.
+
+Turn the unit off. Remove the black wire from the SenseAir S8 sensor
+and plug the three-way wire there and into ground on the Arduino. Turn
+the unit back on; it should be working normally. And you have one open
+connection on your three-way wire. You then when to touch that to the
+5th pin on the 5-pin side of the SenseAir S8 (two holes away from your
+yellow wire, on the other side from the green wire) for more than 4 seconds
+but less than 8 seconds, so go for 5 seconds. It should then reset the
+baseline to 400 ppm. (If you connect the pin to ground for more than 8
+seconds, it will reset the baseline to 0 ppm, which you definitely
+don't want.)
