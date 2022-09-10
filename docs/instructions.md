@@ -263,8 +263,8 @@ should give a reading that is close to 420 ppm. If it reads much too
 high or much too low (say 320 or 500), you may want to manually
 calibrate it.
 
-I did this by soldering three solid wires together and then using that
-plus a female-to-female jumper.
+I did this by soldering three 20-gauge solid wires together and then
+using that plus a female-to-female jumper.
 
 Turn the unit off. Remove the black wire from the SenseAir S8 sensor
 and plug the three-way wire there and into ground on the Arduino. Turn
@@ -276,3 +276,5 @@ but less than 8 seconds, so go for 5 seconds. It should then reset the
 baseline to 400 ppm. (If you connect the pin to ground for more than 8
 seconds, it will reset the baseline to 0 ppm, which you definitely
 don't want.)
+
+![Wires for calibration: three solid wires soldered together plus a female-to-female jumper](https://karlduino.org/CO2monitor/docs/pics/11_wires_for_calibration.jpg)
