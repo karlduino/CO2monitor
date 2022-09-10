@@ -33,7 +33,11 @@ same (in particular, don’t let it “shrink to printable area”).
 
 Tape the template to the bottom of the box, making sure the lid
 opening is oriented correctly. most important is lining up the top and
-sides, because the LCD display is a very tight fit.
+sides, because the LCD display is a very tight fit. (The LCD display
+we're using has screw holes separated by 75mm left/right and 31mm
+top/bottom. If yours is different, you'll need to [adjust the R code
+for the
+template](https://github.com/karlduino/CO2monitor/blob/main/docs/DrillTemplate/co2_monitor_drill_template.R)].
 
 ![box with drilling template, with punch tool for marking drilling locations](https://karlduino.org/CO2monitor/docs/pics/01_with_template.jpg)
 
