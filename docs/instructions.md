@@ -1,6 +1,6 @@
-## CO~2~ monitor assembly instructions
+## CO2 monitor assembly instructions
 
-The goal of this project was to have a low-cost but accurate CO~2~ monitor, so
+The goal of this project was to have a low-cost but accurate CO2 monitor, so
 that we could make a bunch of them to hand out to university workers
 to assess the air quality in their work spaces, including classrooms.
 
@@ -112,11 +112,10 @@ blurry enough that you can't tell.
 
 You can get an Arduino Nano Every with header pins already in place,
 but it's a bit cheaper (and maybe more flexible) to get them without
-the header pins.  I'll use a full 16-pin header, but I only solder the
-pins being used, plus the pins at the end (for stability). You could
-go back and solder the rest later, if the Arduino were to be reused
-for a different project. The easiest way to holder the pins in place
-for soldering, probably, is to put it all in a breadboard.
+the header pins installed. While you might just solder the pins that
+are being used, it requires less thought and not much more time to
+just solder all the pins. The easiest way to hold the pins in place
+for soldering is to put it on a breadboard.
 
 
 
