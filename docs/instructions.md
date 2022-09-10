@@ -125,7 +125,7 @@ To mount the LCD display, I use two 1/2” 4/40 screws with round heads,
 with the heads outside the box, and two lock nuts.
 
 To mount the Arduino, I use three 11/32” 0/80 screws, with the heads
-instead the box, and three hex nuts. (I would do it the other
+inside the box, and three hex nuts. (I would do it the other
 way-round, but I just couldn't handle the tiny screws in the tight
 spaces to do it that way. I practically need tweezers to handle
 these screws.) You can cut off the excess screw with just an angle
@@ -136,6 +136,11 @@ had going for them.
 I get these small screws and nuts
 [McMaster-Carr](https://mcmaster.com).
 
+As [mentioned
+below](https://karlduino.org/CO2monitor/docs/instructions.html#load-the-software),
+we seemed to have trouble with shorts between the screws used to mount
+the Arduino and the micro-USB port. Maybe putting electrical tape on
+the corners of the board would help with this problem?
 
 
 ### Make connections
