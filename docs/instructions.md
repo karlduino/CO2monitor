@@ -198,7 +198,8 @@ screw near pin D12, and in one case, we removed the screw near D13.
 You will need to adjust the contrast on the LCD display, using a small
 screw to turn the blue potentiometer on the back of the LCD, near the
 wire connections. You probably won't be able to read the text on the
-display until you do.
+display until you do. It may work to just turn it all the way to the
+right (clockwise).
 
 
 
