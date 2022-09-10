@@ -179,6 +179,15 @@ Download the software for this project,
 and open it in the Arduino IDE. Upload it to your board, and it'll
 immediately start running.
 
+While in some cases we were able to upload the software immediately,
+in other cases **we got repeated error messages and couldn't get the
+software to upload to the Arduino board**. It seems that this was due
+to a short between the USB port and one of the screws used to mount
+the Arduino. Removing the screws, we were able to upload the software.
+In a couple of cases, there were run-time problems that seemed to be
+due to shorts with the mounting screws. In two cases, we removed the
+screw near pin D12, and in one case, we removed the screw near D13.
+
 
 ### Adjust the LCD contrast
 
@@ -202,4 +211,5 @@ Tape the box shut with a couple of pieces of clear tape.
 
 You use the same micro-USB port to power the project as to load the
 software. You should be able to use any USB power adapter. You should
-also be able to use any USB backup battery, like for a phone.
+also be able to use any USB backup battery, like for a phone. Or you
+can power the project with a USB port in a computer.
