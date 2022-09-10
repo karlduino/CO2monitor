@@ -121,6 +121,8 @@ are being used, it requires less thought and not much more time to
 just solder all the pins. The easiest way to hold the pins in place
 for soldering is to put it on a breadboard.
 
+![Arudino Nano Every on header pins on breadboard, ready for soldering](https://karlduino.org/CO2monitor/docs/pics/08_arduino_on_breadboard.jpg)
+
 
 
 ### Mount the components
@@ -157,6 +159,29 @@ You'll need to bend back the pins (carefully) on the LCD display, and
 bend them apart a bit, two above and two below the blue contrast
 potentiometer. Otherwise you won't be able to close the lid.
 
+The 16x2 LCD with I2C has a 4-pin connector:
+
+  - 16x2 GND → Arduino GND (black)
+
+  - 16x2 VCC → Arduino VIN (red)
+
+  - 16x2 SDA → Arduino A4 (green)
+
+  - 16x2 SCL → Arduino A5 (yellow)
+
+![Connections between LCD display and Arudino](https://karlduino.org/CO2monitor/docs/pics/09_lcd_connections.jpg)
+
+The SenseAir S8 connections are the following:
+
+- 4-pin side, pin 1 (G+) → Arduino 5V (red)
+
+- 4-pin side, pin 2 (G0) → Arduino GND (black)
+
+- 5-pin side, pin 2 (UART RX) → Arduino D10 (green)
+
+- 5-pin side, pin 3 (UART TX) → Arduino D11 (yellow)
+
+![Connections between LCD display and Arudino](https://karlduino.org/CO2monitor/docs/pics/10_all_connections.jpg)
 
 
 
