@@ -120,7 +120,7 @@ void setup() {
 
 int max_co2 = 0;
 double ave_co2 = 0.0;
-int n_measurements = 0;
+unsigned long n_measurements = 0;
 
 void loop() {
 
