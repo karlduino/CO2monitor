@@ -113,12 +113,14 @@ void setup() {
   lcd.printByte(0);  // subscript 2
 
   lcd.setCursor(0,1);
-  lcd.print("max CO  =");
-  lcd.setCursor(6,1);
-  lcd.printByte(0);  // subscript 2
+  lcd.print("max ");
+  lcd.setCursor(9,1);
+  lcd.print("ave ");
 }
 
 int max_co2 = 0;
+double ave_co2 = 0.0;
+int n_measurements = 0;
 
 void loop() {
 
@@ -127,12 +129,12 @@ void loop() {
   // clear bits from the display
   lcd.setCursor(0,0);
   lcd.print("    ");
-  lcd.setCursor(10,1);
+  lcd.setCursor(4,1);
   lcd.print("    ");
   lcd.setCursor(13, 0);
   lcd.print("   ");
-  lcd.setCursor(15, 1);
-  lcd.print(" ");
+  lcd.setCursor(12, 1);
+  lcd.print("    ");
 
   // Get and display CO2 measure
   sensor.co2 = sensor_S8->get_co2();
@@ -142,8 +144,20 @@ void loop() {
 
   // max since start-up
   if (sensor.co2 > max_co2) { max_co2 = sensor.co2; }
-  lcd.setCursor(10,1);
-  sprintf(buffer, "%4d", max_co2);
+  lcd.setCursor(4,1);
+  sprintf(buffer, "%-4d", max_co2);
+  lcd.print(buffer);
+
+  // average
+  if(n_measurements == 0) {
+      ave_co2 = (double) sensor.co2;
+  } else {
+      ave_co2 = (ave_co2 * (double)n_measurements + (double)sensor.co2) / (double)(n_measurements+1);
+  }
+  n_measurements++;
+  int ave_co2_int = round(ave_co2);
+  lcd.setCursor(12,1);
+  sprintf(buffer, "%4d", ave_co2_int);
   lcd.print(buffer);
 
   // print warning
@@ -154,8 +168,8 @@ void loop() {
     lcd.printByte(3); // frown
   } else {
     lcd.setCursor(13,0);
-    lcd.print("!!!");
-    lcd.setCursor(15,1);
+    lcd.print("! !");
+    lcd.setCursor(14,0);
     lcd.printByte(3); // frown
   }
 
