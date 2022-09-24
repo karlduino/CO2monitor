@@ -181,7 +181,7 @@ The SenseAir S8 connections are the following:
 
 - 5-pin side, pin 3 (UART TX) → Arduino D11 (yellow)
 
-![Connections between LCD display and Arudino](https://karlduino.org/CO2monitor/docs/pics/10_all_connections.jpg)
+![Connections between Arudino and both the LCD display and sensor](https://karlduino.org/CO2monitor/docs/pics/10_all_connections.jpg)
 
 
 
